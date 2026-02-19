@@ -3,11 +3,16 @@ import { db } from '@/db';
 import { projects, projectUpdates } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
+type RouteContext = {
+  params: Promise<{ id: string }>;
+};
+
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: RouteContext
 ) {
   try {
+    const params = await context.params;
     const projectId = Number.parseInt(params.id, 10);
 
     if (Number.isNaN(projectId)) {

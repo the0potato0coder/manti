@@ -3,11 +3,16 @@ import { db } from '@/db';
 import { projects, projectUpdates } from '@/db/schema';
 import { eq, desc } from 'drizzle-orm';
 
+type RouteContext = {
+  params: Promise<{ id: string }>;
+};
+
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  context: RouteContext
 ) {
   try {
+    const params = await context.params;
     const projectId = Number.parseInt(params.id, 10);
 
     if (Number.isNaN(projectId)) {
@@ -51,9 +56,10 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: RouteContext
 ) {
   try {
+    const params = await context.params;
     const projectId = Number.parseInt(params.id, 10);
 
     if (Number.isNaN(projectId)) {
@@ -173,9 +179,10 @@ export async function PUT(
 
 export async function DELETE(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  context: RouteContext
 ) {
   try {
+    const params = await context.params;
     const projectId = Number.parseInt(params.id, 10);
 
     if (Number.isNaN(projectId)) {

@@ -356,12 +356,9 @@ export default function Home() {
 
             <Card
               className="bg-[#0A0A0F] border-[#E0E220]/20 hover:border-[#E0E220] transition-all duration-300 overflow-hidden group cursor-pointer hover:shadow-[0_0_30px_rgba(224,226,32,0.2)] flex items-center justify-center min-h-70"
-              onClick={() =>
-                window.parent.postMessage(
-                  { type: "OPEN_EXTERNAL_URL", data: { url: "https://www.behance.net/Manticorestudio" } },
-                  "*"
-                )
-              }
+              onClick={() => {
+                window.location.href = "https://www.behance.net/Manticorestudio";
+              }}
             >
               <div className="text-center p-8">
                 <div className="w-20 h-20 mx-auto mb-6 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-full flex items-center justify-center group-hover:bg-[#E0E220] group-hover:border-[#E0E220] transition-all">
