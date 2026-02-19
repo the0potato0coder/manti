@@ -20,17 +20,22 @@ export const authClient = createAuthClient({
   }
 });
 
-type SessionData = ReturnType<typeof authClient.useSession>
+type SessionData = {
+   data: any;
+   isPending: boolean;
+   error: any;
+   refetch: () => Promise<void>;
+}
 
 export function useSession(): SessionData {
    const [session, setSession] = useState<any>(null);
    const [isPending, setIsPending] = useState(true);
    const [error, setError] = useState<any>(null);
 
-   const refetch = () => {
+   const refetch = async () => {
       setIsPending(true);
       setError(null);
-      fetchSession();
+      await fetchSession();
    };
 
    const fetchSession = async () => {

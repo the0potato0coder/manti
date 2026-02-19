@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import { Toaster } from "sonner";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
@@ -11,7 +11,9 @@ export function ClientShell({ children }: { children: ReactNode }) {
       <ErrorReporter />
       {children}
       <Toaster position="top-center" />
-      <VisualEditsMessenger />
+      <Suspense fallback={null}>
+        <VisualEditsMessenger />
+      </Suspense>
     </>
   );
 }
