@@ -2,22 +2,24 @@ import type { Metadata } from "next";
 import HomeClient from "./home-client";
 
 export const metadata: Metadata = {
-  title: "Motion Design and 3D Animation Studio",
+  title: "Digital Marketing and Creative Agency",
   description:
-    "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+    "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Motion Design and 3D Animation Studio | Manticore Studio",
+    title: "Digital Marketing and Creative Agency | Manticore Studio",
     description:
-      "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
     url: "/",
+    images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Motion Design and 3D Animation Studio | Manticore Studio",
+    title: "Digital Marketing and Creative Agency | Manticore Studio",
     description:
-      "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+    images: ["/twitter-image"],
   },
 };
 

@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.manticorestudio.com"),
   title: {
-    default: "Motion Design and 3D Animation Studio | Manticore Studio",
+    default: "Digital Marketing and Creative Agency | Manticore Studio",
     template: "%s | Manticore Studio",
   },
   description:
-    "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+    "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
   alternates: {
     canonical: "/",
   },
@@ -30,15 +30,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Manticore Studio",
     url: "https://www.manticorestudio.com",
-    title: "Motion Design and 3D Animation Studio | Manticore Studio",
+    title: "Digital Marketing and Creative Agency | Manticore Studio",
     description:
-      "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Manticore Studio - Digital Marketing and Creative Agency",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Motion Design and 3D Animation Studio | Manticore Studio",
+    title: "Digital Marketing and Creative Agency | Manticore Studio",
     description:
-      "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
