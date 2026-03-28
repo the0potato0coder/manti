@@ -15,9 +15,62 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Manticore Studio - Creative Visual Storytelling",
+  metadataBase: new URL("https://www.manticorestudio.com"),
+  title: {
+    default: "Motion Design and 3D Animation Studio | Manticore Studio",
+    template: "%s | Manticore Studio",
+  },
   description:
-    "Cutting-edge creative powerhouse specializing in motion design, 3D animation, CGI, branding, and advertising. Empowering brands with visual solutions that inspire and engage.",
+    "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Manticore Studio",
+    url: "https://www.manticorestudio.com",
+    title: "Motion Design and 3D Animation Studio | Manticore Studio",
+    description:
+      "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Motion Design and 3D Animation Studio | Manticore Studio",
+    description:
+      "Manticore Studio creates motion design, CGI, branding, and ad campaigns that help brands stand out and convert.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Manticore Studio",
+  url: "https://www.manticorestudio.com",
+  logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=1200&height=1200&resize=contain",
+  sameAs: [
+    "https://www.instagram.com/manticore.studio",
+    "https://www.linkedin.com/company/manticore-studio",
+    "https://www.youtube.com/@ManticoreStudio",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Manticore Studio",
+  url: "https://www.manticorestudio.com",
 };
 
 export default function RootLayout({
@@ -28,6 +81,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
