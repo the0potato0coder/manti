@@ -4,6 +4,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClientShell } from "./client-shell";
 
+const BRAND_ICON_URL =
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=1200&height=1200&resize=contain";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,10 +18,80 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Manticore Studio - Creative Visual Storytelling",
+  metadataBase: new URL("https://www.manticorestudio.com"),
+  title: {
+    default: "Digital Marketing and Creative Agency | Manticore Studio",
+    template: "%s | Manticore Studio",
+  },
   description:
-    "Cutting-edge creative powerhouse specializing in motion design, 3D animation, CGI, branding, and advertising. Empowering brands with visual solutions that inspire and engage.",
+    "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Manticore Studio",
+    url: "https://www.manticorestudio.com",
+    title: "Digital Marketing and Creative Agency | Manticore Studio",
+    description:
+      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Manticore Studio - Digital Marketing and Creative Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing and Creative Agency | Manticore Studio",
+    description:
+      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+    images: ["/twitter-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [{ url: BRAND_ICON_URL }],
+    shortcut: [{ url: BRAND_ICON_URL }],
+    apple: [{ url: BRAND_ICON_URL }],
+  },
 };
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Manticore Studio",
+  url: "https://www.manticorestudio.com",
+  logo: BRAND_ICON_URL,
+  sameAs: [
+    "https://www.instagram.com/manticore.studio",
+    "https://www.linkedin.com/company/manticore-studio",
+    "https://www.youtube.com/@ManticoreStudio",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Manticore Studio",
+  url: "https://www.manticorestudio.com",
+};
+
+const safeJsonLd = (schema: Record<string, unknown>) =>
+  JSON.stringify(schema).replace(/</g, "\\u003c");
 
 export default function RootLayout({
   children,
@@ -28,6 +101,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteJsonLd) }}
+        />
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
