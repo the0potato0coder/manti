@@ -7,7 +7,13 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         // /upcoming-projects is intentionally parked for now.
-        disallow: ["/admin", "/seo-admin", "/studio", "/api/auth", "/upcoming-projects"],
+        disallow: [
+          "/admin",
+          "/seo-admin",
+          "/studio",
+          "/api/auth",
+          "/upcoming-projects",
+        ],
       },
     ],
     sitemap: "https://www.manticorestudio.com/sitemap.xml",

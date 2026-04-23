@@ -4,6 +4,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClientShell } from "./client-shell";
 
+const BRAND_ICON_URL =
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=1200&height=1200&resize=contain";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -60,6 +63,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  icons: {
+    icon: [{ url: BRAND_ICON_URL }],
+    shortcut: [{ url: BRAND_ICON_URL }],
+    apple: [{ url: BRAND_ICON_URL }],
+  },
 };
 
 const organizationJsonLd = {
@@ -67,7 +75,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Manticore Studio",
   url: "https://www.manticorestudio.com",
-  logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=1200&height=1200&resize=contain",
+  logo: BRAND_ICON_URL,
   sameAs: [
     "https://www.instagram.com/manticore.studio",
     "https://www.linkedin.com/company/manticore-studio",
