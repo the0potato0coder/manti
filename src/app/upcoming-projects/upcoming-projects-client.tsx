@@ -44,6 +44,9 @@ export default function UpcomingProjects() {
   const fetchProjects = async () => {
     setIsLoading(true);
     try {
+      // TODO: This page is intentionally parked behind notFound() for now.
+      // If /upcoming-projects is re-enabled, restore `/api/projects` or update
+      // this fetch to the replacement endpoint in the same change.
       const response = await fetch("/api/projects");
 
       if (!response.ok) {
