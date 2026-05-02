@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import HomeClient from "./home-client";
 const fallbackDescription =
-  "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.";
+  "Manticore Studio is a top digital marketing and creative agency in Kolkata. We build brands through design, development, and performance marketing.";
 
 export const metadata: Metadata = {
-  title: "Manticore Studio - Digital Marketing and Creative Agency",
+  title: "Digital Marketing & Creative Agency in Kolkata | Manticore Studio",
   description: fallbackDescription,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Digital Marketing and Creative Agency | Manticore Studio",
+    title: "Digital Marketing & Creative Agency in Kolkata | Manticore Studio",
     description: fallbackDescription,
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Digital Marketing and Creative Agency | Manticore Studio",
+    title: "Digital Marketing & Creative Agency in Kolkata | Manticore Studio",
     description: fallbackDescription,
     images: ["/twitter-image"],
   },

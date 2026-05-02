@@ -1,29 +1,21 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
-  Sparkles,
-  Rocket,
-  Video,
-  Instagram,
-  Globe,
-  Mail,
-  Phone,
-  Linkedin,
-  Youtube,
-  MessageCircle,
-  User,
-  Target,
-  TrendingUp,
+  BarChart,
   ChevronRight,
-  ChevronLeft,
+  Coffee,
+  Lightbulb,
+  Quote,
+  Shirt,
+  Store,
+  Target,
+  Utensils,
 } from "lucide-react";
-import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -31,111 +23,6 @@ import {
 import { Starfield } from "@/components/Starfield";
 
 export default function Home() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const teamMembers = [
-    {
-      name: "Anirban Chanda",
-      role: "Creative Head",
-      image:
-        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675514297-ef1hohth2n9.jpg",
-      link: "https://linkedin.com/in/anirbanchanda00",
-      icon: "linkedin",
-    },
-    {
-      name: "Subho Chakraborty",
-      role: "Manager",
-      image:
-        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675527571-5k8wq6ms20m.jpg",
-      link: "https://linkedin.com/in/subho-chakraborty-67baa426b",
-      icon: "linkedin",
-    },
-    {
-      name: "Souvik",
-      role: "Design Head",
-      image:
-        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383313225.png?width=8000&height=8000&resize=contain",
-      link: "",
-      icon: "linkedin",
-    },
-    {
-      name: "Deepta",
-      role: "Graphic Designer",
-      image:
-        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767381726390.png?width=8000&height=8000&resize=contain",
-      link: "https://www.instagram.com/_my.tiny.canvas_/",
-      icon: "instagram",
-    },
-    {
-      name: "Aritri",
-      role: "Brand Designer",
-      image:
-        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-11-09-at-22.17.08_59b976ce-1767381837548.jpg?width=8000&height=8000&resize=contain",
-      link: "https://www.instagram.com/_nineteen_graphics?igsh=MXRzcm52dDNmdGpxYg==",
-      icon: "instagram",
-    },
-    {
-      name: "Anamika",
-      role: "Graphic Designer",
-      image:
-        "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383065791.png?width=8000&height=8000&resize=contain",
-      link: "https://www.instagram.com/_pixel__play_?utm_source=qr&igsh=MXM3b282NTE2YzZqcw==",
-      icon: "instagram",
-    },
-  ];
-
-  const nextSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide((prev) => (prev + 1) % teamMembers.length);
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
-  const prevSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
-  const goToSlide = (index: number) => {
-    if (isTransitioning || index === currentSlide) return;
-    setIsTransitioning(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Submission failed");
-      }
-
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Failed to send message. Please try again."
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-black relative">
       <Starfield />
@@ -143,7 +30,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#E0E220]/20">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain"
                 alt="Manticore Studio Logo"
@@ -154,32 +41,23 @@ export default function Home() {
               />
 
               <span className="text-2xl font-bold text-[#CECECD]">Manticore Studio</span>
-            </div>
+            </Link>
             <div className="hidden md:flex items-center gap-8">
-              <a
-                href="#projects"
+              <Link
+                href="/#projects"
                 className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium"
               >
                 Showcase
-              </a>
-              <a
-                href="#expertise"
-                className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium"
-              >
-                Expertise
-              </a>
-              <a
-                href="#about"
-                className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium"
-              >
+              </Link>
+              <Link href="/services" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">
+                Services
+              </Link>
+              <Link href="/about" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">
                 About Us
-              </a>
-              <a
-                href="#contact"
-                className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium"
-              >
+              </Link>
+              <Link href="/contact" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -192,25 +70,30 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#134652]/30 rounded-full blur-[120px]" />
         </div>
 
-        <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-7xl md:text-9xl font-black text-[#CECECD] mb-6 tracking-tight">
-            Manticore <span className="text-[#E0E220]">Studio</span>
+        <div className="container mx-auto text-center relative z-10 pt-20">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#CECECD] mb-6 tracking-tight leading-tight">
+            Digital Marketing & <br className="hidden md:block" />
+            Creative Agency in <span className="text-[#E0E220]">Kolkata</span>
           </h1>
-          <p className="text-4xl md:text-5xl text-[#CECECD]/80 mb-4 font-light whitespace-pre-line!">
-            Your Creative Partner
+
+          <p className="text-2xl md:text-4xl text-[#CECECD]/90 mb-6 font-light max-w-4xl mx-auto">
+            We build brands through design, development and performance marketing
           </p>
+
           <p className="text-lg md:text-xl text-[#CECECD]/60 mb-12 max-w-3xl mx-auto">
             A new-age creative and marketing house specializing in CGI, 3D & 2D animation, motion
-            graphics, VFX, brand storytelling, and social media marketing — blending art and strategy
-            to create work that feels human, cinematic, and unforgettable.
+            graphics, VFX, brand storytelling, and social media marketing.
           </p>
-          <Button
-            size="lg"
-            className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-8 py-6 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all"
-            asChild
-          >
-            <a href="#projects">View Our Showcase</a>
-          </Button>
+
+          <div className="flex items-center justify-center mt-4">
+            <Button
+              size="lg"
+              className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all"
+              asChild
+            >
+              <a href="#contact">Get Free Consultation</a>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -504,540 +387,79 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="expertise" className="py-32 px-4 relative z-10 bg-linear-to-b from-black to-[#0A0A0F]">
-        <div className="container mx-auto">
-          <div className="relative">
-            <div className="flex justify-center mb-8">
-              <Button
-                size="lg"
-                className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-2xl px-12 py-8 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all"
-              >
-                Our Expertise
-              </Button>
-            </div>
-
-            <div className="flex justify-center mb-0">
-              <div className="w-1 h-12 bg-linear-to-b from-[#E0E220] to-[#E0E220]/50" />
-            </div>
-
-            <div className="hidden md:block relative mb-0">
-              <div className="absolute left-1/2 -translate-x-1/2 w-[85%] h-1 bg-linear-to-r from-transparent via-[#E0E220] to-transparent" />
-            </div>
-
-            <div className="hidden md:flex justify-between px-[7.5%] mb-0">
-              {[1, 2, 3, 4, 5].map((_, idx) => (
-                <div
-                  key={idx}
-                  className="w-1 h-12 bg-linear-to-b from-[#E0E220]/50 to-[#E0E220]/30"
-                />
-              ))}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2 mb-8">
-              {[
-                {
-                  title: "AI Creatives",
-                  icon: Sparkles,
-                  color: "from-purple-500/20 to-purple-900/20",
-                  borderColor: "border-purple-500/50",
-                  textColor: "text-purple-400",
-                },
-                {
-                  title: "Brand Development",
-                  icon: Rocket,
-                  color: "from-blue-500/20 to-blue-900/20",
-                  borderColor: "border-blue-500/50",
-                  textColor: "text-blue-400",
-                },
-                {
-                  title: "Strategy Making",
-                  icon: Target,
-                  color: "from-green-500/20 to-green-900/20",
-                  borderColor: "border-green-500/50",
-                  textColor: "text-green-400",
-                },
-                {
-                  title: "Social Media",
-                  icon: Instagram,
-                  color: "from-pink-500/20 to-pink-900/20",
-                  borderColor: "border-pink-500/50",
-                  textColor: "text-pink-400",
-                },
-                {
-                  title: "Visual Production",
-                  icon: Video,
-                  color: "from-orange-500/20 to-orange-900/20",
-                  borderColor: "border-orange-500/50",
-                  textColor: "text-orange-400",
-                },
-              ].map((branch, idx) => (
-                <div key={idx} className="flex flex-col items-center">
-                  <div
-                    className={`w-full max-w-45 p-4 bg-linear-to-br ${branch.color} border ${branch.borderColor} rounded-xl text-center hover:scale-105 transition-transform cursor-pointer group`}
-                  >
-                    <branch.icon
-                      className={`h-8 w-8 mx-auto mb-2 ${branch.textColor} group-hover:scale-110 transition-transform`}
-                    />
-                    <span className={`font-bold ${branch.textColor}`}>{branch.title}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="hidden md:grid grid-cols-5 gap-2 mb-0">
-              {[1, 2, 3, 4, 5].map((_, idx) => (
-                <div key={idx} className="flex justify-center">
-                  <div className="w-0.5 h-8 bg-linear-to-b from-[#E0E220]/30 to-[#E0E220]/10" />
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2">
-              <div className="space-y-3">
-                {["AI Art Generation", "Smart Content", "Auto Editing"].map((item, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-purple-500/30" />
-                    <div className="p-3 bg-[#0A0A0F] border border-purple-500/30 rounded-lg text-center hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-pointer">
-                      <span className="text-sm text-purple-300">{item}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-3">
-                {["Logo Design", "Brand Identity", "Visual Language"].map((item, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-blue-500/30" />
-                    <div className="p-3 bg-[#0A0A0F] border border-blue-500/30 rounded-lg text-center hover:border-blue-500 hover:bg-blue-500/10 transition-all cursor-pointer">
-                      <span className="text-sm text-blue-300">{item}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-3">
-                {["Market Research", "Campaign Strategy", "Growth Planning"].map((item, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-green-500/30" />
-                    <div className="p-3 bg-[#0A0A0F] border border-green-500/30 rounded-lg text-center hover:border-green-500 hover:bg-green-500/10 transition-all cursor-pointer">
-                      <span className="text-sm text-green-300">{item}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-3">
-                {["Content Calendar", "Influencer Marketing", "Community Mgmt"].map((item, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-pink-500/30" />
-                    <div className="p-3 bg-[#0A0A0F] border border-pink-500/30 rounded-lg text-center hover:border-pink-500 hover:bg-pink-500/10 transition-all cursor-pointer">
-                      <span className="text-sm text-pink-300">{item}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-3">
-                {["3D Animation", "Motion Graphics", "CGI & VFX"].map((item, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-orange-500/30" />
-                    <div className="p-3 bg-[#0A0A0F] border border-orange-500/30 rounded-lg text-center hover:border-orange-500 hover:bg-orange-500/10 transition-all cursor-pointer">
-                      <span className="text-sm text-orange-300">{item}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="hidden md:grid grid-cols-5 gap-2 mt-6">
-              {[1, 2, 3, 4, 5].map((_, idx) => (
-                <div key={idx} className="flex justify-center">
-                  <div className="w-0.5 h-6 bg-linear-to-b from-[#E0E220]/20 to-transparent" />
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2 mt-2">
-              <div className="flex flex-wrap gap-2 justify-center">
-                {["Prompts", "Training"].map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1.5 bg-purple-500/10 border border-purple-500/20 rounded-full text-xs text-purple-300 hover:bg-purple-500/20 transition-colors cursor-pointer"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center">
-                {["Guidelines", "Assets"].map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-300 hover:bg-blue-500/20 transition-colors cursor-pointer"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center">
-                {["Analytics", "KPIs"].map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full text-xs text-green-300 hover:bg-green-500/20 transition-colors cursor-pointer"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center">
-                {["Reels", "Stories"].map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1.5 bg-pink-500/10 border border-pink-500/20 rounded-full text-xs text-pink-300 hover:bg-pink-500/20 transition-colors cursor-pointer"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center">
-                {["Render", "Composite"].map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1.5 bg-orange-500/10 border border-orange-500/20 rounded-full text-xs text-orange-300 hover:bg-orange-500/20 transition-colors cursor-pointer"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-20 text-center">
-              <h3 className="text-3xl font-bold text-[#CECECD] mb-8">Our Tools & Technologies</h3>
-              <div className="relative overflow-hidden">
-                <div className="flex gap-4 animate-[scroll_40s_linear_infinite]">
-                  {["Blender", "After Effects", "Cinema 4D", "Arnold", "Affinity", "Ai", "Adobe Suite", "DaVinci Resolve", "Google Analytics", "SEMrush", "HubSpot", "Mailchimp", "Hootsuite", "Meta Ads Manager", "Google Ads", "Canva"].map(
-                    (tool) => (
-                      <span
-                        key={tool}
-                        className="px-6 py-3 bg-[#0A0A0F] border border-[#E0E220]/30 rounded-lg text-[#CECECD] font-medium hover:border-[#E0E220] hover:bg-[#E0E220]/5 transition-all whitespace-nowrap shrink-0"
-                      >
-                        {tool}
-                      </span>
-                    )
-                  )}
-                  {["Blender", "After Effects", "Cinema 4D", "Arnold", "Affinity", "Ai", "Adobe Suite", "DaVinci Resolve", "Google Analytics", "SEMrush", "HubSpot", "Mailchimp", "Hootsuite", "Meta Ads Manager", "Google Ads", "Canva"].map(
-                    (tool) => (
-                      <span
-                        key={`${tool}-duplicate`}
-                        className="px-6 py-3 bg-[#0A0A0F] border border-[#E0E220]/30 rounded-lg text-[#CECECD] font-medium hover:border-[#E0E220] hover:bg-[#E0E220]/5 transition-all whitespace-nowrap shrink-0"
-                      >
-                        {tool}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="py-32 px-4 relative z-10">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold text-[#CECECD] mb-6">About Us</h2>
-          </div>
-
-          <div className="space-y-8 text-center">
-            <p className="text-xl text-[#CECECD]/80 leading-relaxed">
-              Manticore Studio is a new-age creative and marketing house redefining how visuals speak.
-              We specialize in <span className="text-[#E0E220] font-bold">CGI, 3D & 2D animation, motion graphics, VFX, and brand storytelling</span> — blending art and strategy to create work that feels human, cinematic, and unforgettable.
-            </p>
-            <p className="text-lg text-[#CECECD]/70 leading-relaxed">
-              From local businesses to lifestyle brands, we don't just design campaigns — we
-              <span className="text-[#E0E220] font-semibold"> build identities, cultures, and emotions</span> that connect. Our work bridges creativity and communication, turning visuals into brand experiences through
-              <span className="text-[#E0E220] font-semibold"> social media marketing</span> and comprehensive brand building.
-            </p>
-            <p className="text-lg text-[#CECECD]/70 leading-relaxed">
-              Rooted in imagination and driven by innovation, Manticore Studio stands for one thing —
-              <span className="text-[#E0E220] font-bold"> craft with purpose</span>. Our mission is to empower brands with cutting-edge visual solutions that inspire and engage audiences, setting new standards in creativity, precision, and storytelling.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8 mt-16">
-              {[
-                { value: "Creativity", desc: "Pushing boundaries with every project" },
-                { value: "Brand Building", desc: "Creating identities that connect and resonate" },
-                { value: "Innovation", desc: "Leading the future of visual storytelling" },
-              ].map((val, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 bg-[#0A0A0F] border border-[#E0E220]/20 rounded-xl"
-                >
-                  <h3 className="text-2xl font-bold text-[#E0E220] mb-3">{val.value}</h3>
-                  <p className="text-[#CECECD]/70">{val.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="team" className="py-32 px-4 relative z-10 bg-linear-to-b from-[#0A0A0F] to-black">
+      <section className="py-24 px-4 relative z-10 bg-linear-to-b from-black to-[#0A0A0F]">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-[#CECECD] mb-6">Meet Our Team</h2>
-            <p className="text-xl text-[#CECECD]/70">
-              The creative minds behind Manticore Studio's exceptional work
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Why Choose Manticore?</h2>
+            <p className="text-[#CECECD]/70 text-lg">We don't just make things look good; we make them perform.</p>
           </div>
-
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div className="flex transition-none">
-                {teamMembers.map((member, idx) => (
-                  <div
-                    key={idx}
-                    className={`w-full shrink-0 px-4 transition-all duration-500 ${
-                      idx === currentSlide
-                        ? "opacity-100 animate-[fadeIn_0.5s_ease-out]"
-                        : "opacity-0 absolute inset-0 animate-[fadeOut_0.5s_ease-out]"
-                    }`}
-                    style={{ display: idx === currentSlide ? "block" : "none" }}
-                  >
-                    <Card className="bg-[#0A0A0F] border-[#E0E220]/20 hover:border-[#E0E220] transition-all duration-300 hover:shadow-[0_0_30px_rgba(224,226,32,0.2)] max-w-md mx-auto">
-                      <CardHeader className="text-center">
-                        <div
-                          className={`w-32 h-32 mx-auto mb-6 bg-linear-to-br from-[#E0E220] to-[#134652] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(224,226,32,0.3)] ${
-                            member.image ? "bg-cover! bg-center!" : ""
-                          }`}
-                          style={member.image ? { backgroundImage: `url(${member.image})` } : {}}
-                        >
-                          {!member.image && <User className="h-16 w-16 text-black" />}
-                        </div>
-                        <CardTitle className="text-3xl text-[#CECECD] mb-3">{member.name}</CardTitle>
-                        <CardDescription className="text-[#E0E220] font-semibold text-xl mb-6">
-                          {member.role}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="text-center pb-8">
-                        <a
-                          href={member.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-8 py-4 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg text-[#CECECD] hover:bg-[#E0E220] hover:text-black transition-all font-medium text-lg"
-                        >
-                          {member.icon === "linkedin" ? (
-                            <Linkedin className="h-6 w-6" />
-                          ) : (
-                            <Instagram className="h-6 w-6" />
-                          )}
-                          {member.icon === "linkedin" ? "Connect on LinkedIn" : "View Portfolio"}
-                        </a>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Creative-First", icon: Lightbulb, desc: "We push boundaries with thumb-stopping 3D, CGI, and motion graphics that demand attention." },
+              { title: "Strategy-Driven", icon: Target, desc: "Every visual is backed by deep market research and a clear understanding of your audience." },
+              { title: "Performance-Focused", icon: BarChart, desc: "We track metrics that matter. Our goal is tangible growth, conversions, and ROI." }
+            ].map((item, idx) => (
+              <div key={idx} className="p-8 bg-[#0A0A0F] border border-[#E0E220]/20 rounded-xl hover:border-[#E0E220]/50 transition-colors">
+                <item.icon className="w-12 h-12 text-[#E0E220] mb-6" />
+                <h3 className="text-2xl font-bold text-[#CECECD] mb-3">{item.title}</h3>
+                <p className="text-[#CECECD]/70 leading-relaxed">{item.desc}</p>
               </div>
-            </div>
-
-            <button
-              onClick={prevSlide}
-              disabled={isTransitioning}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-full flex items-center justify-center hover:bg-[#E0E220] hover:border-[#E0E220] transition-all disabled:opacity-50 disabled:cursor-not-allowed group z-10"
-              aria-label="Previous team member"
-            >
-              <ChevronLeft className="h-6 w-6 text-[#E0E220] group-hover:text-black" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              disabled={isTransitioning}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-full flex items-center justify-center hover:bg-[#E0E220] hover:border-[#E0E220] transition-all disabled:opacity-50 disabled:cursor-not-allowed group z-10"
-              aria-label="Next team member"
-            >
-              <ChevronRight className="h-6 w-6 text-[#E0E220] group-hover:text-black" />
-            </button>
-
-            <div className="flex justify-center gap-3 mt-12">
-              {teamMembers.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => goToSlide(idx)}
-                  disabled={isTransitioning}
-                  className={`w-3 h-3 rounded-full transition-all disabled:cursor-not-allowed ${
-                    idx === currentSlide ? "bg-[#E0E220] w-8" : "bg-[#E0E220]/30 hover:bg-[#E0E220]/60"
-                  }`}
-                  aria-label={`Go to team member ${idx + 1}`}
-                />
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-32 px-4 relative z-10 bg-linear-to-t from-black to-[#0A0A0F]">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-[#CECECD] mb-6">Let's Create Together</h2>
-            <p className="text-xl text-[#CECECD]/70">
-              Start a project: Let's create a bold, lasting impression in the digital age.
-            </p>
+      <section className="py-24 px-4 relative z-10">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Industries We Serve</h2>
+              <p className="text-[#CECECD]/70 text-lg max-w-2xl">We tailor our creative and marketing strategies to fit the unique challenges of your specific market.</p>
+            </div>
+            <Button className="bg-transparent border border-[#E0E220] text-[#E0E220] hover:bg-[#E0E220]/10" asChild>
+              <Link href="/contact">Is your industry missing? Let's talk.</Link>
+            </Button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            {[
+              { name: "Restaurants", icon: Utensils },
+              { name: "Cafes", icon: Coffee },
+              { name: "Apparel Brands", icon: Shirt },
+              { name: "Local Businesses", icon: Store }
+            ].map((ind, idx) => (
+              <div key={idx} className="aspect-square flex flex-col items-center justify-center p-6 bg-black border border-[#E0E220]/10 rounded-2xl hover:bg-[#E0E220]/5 hover:border-[#E0E220]/40 transition-all cursor-pointer group">
+                <ind.icon className="w-12 h-12 text-[#CECECD]/50 group-hover:text-[#E0E220] mb-4 transition-colors" />
+                <h3 className="text-lg font-semibold text-[#CECECD]">{ind.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 relative z-10 bg-linear-to-t from-black to-[#0A0A0F]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-8 mb-24">
+            {[
+              { text: "Manticore completely transformed our brand's visual identity. The 3D animations they created increased our ad engagement by 300%.", author: "Sarah J.", company: "Apparel Brand" },
+              { text: "Finding an agency in Kolkata that understands both high-end design and performance marketing was a game-changer for our cafe chain.", author: "Rahul M.", company: "Local Cafe" }
+            ].map((quote, idx) => (
+              <div key={idx} className="p-8 bg-[#0A0A0F] border border-[#E0E220]/20 rounded-2xl relative">
+                <Quote className="absolute top-6 right-6 w-12 h-12 text-[#E0E220]/10" />
+                <p className="text-xl text-[#CECECD]/90 italic mb-6">"{quote.text}"</p>
+                <div>
+                  <p className="font-bold text-[#E0E220]">{quote.author}</p>
+                  <p className="text-sm text-[#CECECD]/50">{quote.company}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
-            <Card className="bg-[#0A0A0F] border-[#E0E220]/20">
-              <CardHeader>
-                <CardTitle className="text-2xl text-[#CECECD]">Send Us a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-[#CECECD] mb-2 font-medium">Name</label>
-                    <input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] focus:outline-none focus:ring-2 focus:ring-[#E0E220]/20"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[#CECECD] mb-2 font-medium">Email</label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] focus:outline-none focus:ring-2 focus:ring-[#E0E220]/20"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[#CECECD] mb-2 font-medium">Message</label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={5}
-                      className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] focus:outline-none focus:ring-2 focus:ring-[#E0E220]/20 resize-none"
-                      required
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold py-3"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-[#CECECD] mb-6">Get In Touch</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center shrink-0">
-                      <Mail className="h-6 w-6 text-[#E0E220]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg text-[#CECECD] mb-1">Email</h4>
-                      <a
-                        href="mailto:manticorecreatives@gmail.com"
-                        className="text-[#CECECD]/70 hover:text-[#E0E220] transition-colors"
-                      >
-                        manticorecreatives@gmail.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center shrink-0">
-                      <Phone className="h-6 w-6 text-[#E0E220]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg text-[#CECECD] mb-1">Phone</h4>
-                      <p className="text-[#CECECD]/70">
-                        <a
-                          href="tel:+919073495717"
-                          className="hover:text-[#E0E220] transition-colors"
-                        >
-                          +91 9073495717
-                        </a>
-                        <br />
-                        <a
-                          href="tel:+919831012176"
-                          className="hover:text-[#E0E220] transition-colors"
-                        >
-                          +91 9831012176
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center shrink-0">
-                      <MessageCircle className="h-6 w-6 text-[#E0E220]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg text-[#CECECD] mb-1">WhatsApp</h4>
-                      <a
-                        href="https://wa.me/919831012176"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#CECECD]/70 hover:text-[#E0E220] transition-colors"
-                      >
-                        +91 9831012176
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold text-[#CECECD] mb-6">Follow Us</h3>
-                <div className="flex gap-4">
-                  <a
-                    href="https://www.instagram.com/manticorestudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center hover:bg-[#E0E220] hover:border-[#E0E220] transition-all group"
-                  >
-                    <Instagram className="h-6 w-6 text-[#E0E220] group-hover:text-black" />
-                  </a>
-                  <a
-                    href="https://www.behance.net/Manticorestudio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center hover:bg-[#E0E220] hover:border-[#E0E220] transition-all group"
-                  >
-                    <Globe className="h-6 w-6 text-[#E0E220] group-hover:text-black" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/company/manticorestudio/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center hover:bg-[#E0E220] hover:border-[#E0E220] transition-all group"
-                  >
-                    <Linkedin className="h-6 w-6 text-[#E0E220] group-hover:text-black" />
-                  </a>
-                  <a
-                    href="https://youtube.com/@manticorestudio-p5t?si=SshBrsBcKU7EcROD"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg flex items-center justify-center hover:bg-[#E0E220] hover:border-[#E0E220] transition-all group"
-                  >
-                    <Youtube className="h-6 w-6 text-[#E0E220] group-hover:text-black" />
-                  </a>
-                </div>
-                <p className="text-sm text-[#CECECD]/50 mt-4">
-                  View our full portfolio on Behance: Manticore Studio in India
-                </p>
-              </div>
-            </div>
+          <div className="text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-12 md:p-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Let's grow your business.</h2>
+            <p className="text-xl text-[#CECECD]/80 mb-8 max-w-2xl mx-auto">Ready to dominate your market? Book a free consultation to see how we can help you scale.</p>
+            <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-8 py-6 rounded-xl" asChild>
+              <Link href="/contact">Book Free Consultation</Link>
+            </Button>
           </div>
         </div>
       </section>

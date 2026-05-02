@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.manticorestudio.com"),
   title: {
-    default: "Digital Marketing and Creative Agency | Manticore Studio",
+    default: "Digital Marketing & Creative Agency in Kolkata | Manticore Studio",
     template: "%s | Manticore Studio",
   },
   description:
-    "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+    "Manticore Studio is a leading digital marketing and creative agency in Kolkata, delivering CGI, motion design, branding, and performance marketing that help brands grow.",
   alternates: {
     canonical: "/",
   },
@@ -33,23 +33,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Manticore Studio",
     url: "https://www.manticorestudio.com",
-    title: "Digital Marketing and Creative Agency | Manticore Studio",
+    title: "Digital Marketing & Creative Agency in Kolkata | Manticore Studio",
     description:
-      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+      "Manticore Studio is a leading digital marketing and creative agency in Kolkata, delivering CGI, motion design, branding, and performance marketing that help brands grow.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Manticore Studio - Digital Marketing and Creative Agency",
+        alt: "Manticore Studio - Digital Marketing and Creative Agency in Kolkata",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing and Creative Agency | Manticore Studio",
+    title: "Digital Marketing & Creative Agency in Kolkata | Manticore Studio",
     description:
-      "Manticore Studio is a digital marketing and creative agency delivering CGI, motion design, branding, and ad campaigns that help brands grow.",
+      "Manticore Studio is a leading digital marketing and creative agency in Kolkata, delivering CGI, motion design, branding, and performance marketing that help brands grow.",
     images: ["/twitter-image"],
   },
   robots: {
