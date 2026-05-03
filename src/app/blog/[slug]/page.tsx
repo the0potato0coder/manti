@@ -28,7 +28,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <nav className="border-b border-[#E0E220]/20 bg-black/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-              <Image src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain" alt="Logo" width={40} height={40} className="w-10 h-10 rounded-lg"/>
+              <Image src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain" alt="Logo" width={40} height={40} className="w-10 h-10 rounded-lg"/>
               <span className="text-xl font-bold text-[#CECECD] hidden md:block">Manticore Studio</span>
           </Link>
           <Button variant="ghost" className="text-[#CECECD] hover:text-[#E0E220]" asChild>

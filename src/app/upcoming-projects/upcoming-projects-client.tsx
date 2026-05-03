@@ -112,7 +112,7 @@ export default function UpcomingProjects() {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-3">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain"
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
                 alt="Manticore Studio Logo"
                 width={40}
                 height={40}
@@ -291,7 +291,7 @@ export default function UpcomingProjects() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-3">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain"
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
                 alt="Manticore Studio Logo"
                 width={32}
                 height={32}

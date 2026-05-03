@@ -15,10 +15,10 @@ export default function AboutPage() {
   const teamMembers = [
     { name: "Anirban Chanda", role: "Creative Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675514297-ef1hohth2n9.jpg", link: "https://linkedin.com/in/anirbanchanda00", icon: "linkedin" },
     { name: "Subho Chakraborty", role: "Manager", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675527571-5k8wq6ms20m.jpg", link: "https://linkedin.com/in/subho-chakraborty-67baa426b", icon: "linkedin" },
-    { name: "Souvik", role: "Design Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383313225.png?width=8000&height=8000&resize=contain", link: "", icon: "linkedin" },
-    { name: "Deepta", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767381726390.png?width=8000&height=8000&resize=contain", link: "https://www.instagram.com/_my.tiny.canvas_/", icon: "instagram" },
-    { name: "Aritri", role: "Brand Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-11-09-at-22.17.08_59b976ce-1767381837548.jpg?width=8000&height=8000&resize=contain", link: "https://www.instagram.com/_nineteen_graphics?igsh=MXRzcm52dDNmdGpxYg==", icon: "instagram" },
-    { name: "Anamika", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383065791.png?width=8000&height=8000&resize=contain", link: "https://www.instagram.com/_pixel__play_?utm_source=qr&igsh=MXM3b282NTE2YzZqcw==", icon: "instagram" },
+    { name: "Souvik", role: "Design Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383313225.png?width=800&height=800&resize=contain", link: "", icon: "linkedin" },
+    { name: "Deepta", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767381726390.png?width=800&height=800&resize=contain", link: "https://www.instagram.com/_my.tiny.canvas_/", icon: "instagram" },
+    { name: "Aritri", role: "Brand Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-11-09-at-22.17.08_59b976ce-1767381837548.jpg?width=800&height=800&resize=contain", link: "https://www.instagram.com/_nineteen_graphics?igsh=MXRzcm52dDNmdGpxYg==", icon: "instagram" },
+    { name: "Anamika", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383065791.png?width=800&height=800&resize=contain", link: "https://www.instagram.com/_pixel__play_?utm_source=qr&igsh=MXM3b282NTE2YzZqcw==", icon: "instagram" },
   ];
 
   const nextSlide = () => {
@@ -46,22 +46,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-black relative">
       <Starfield />
       
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#E0E220]/20">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain" alt="Logo" width={40} height={40} className="w-10 h-10 rounded-lg"/>
-              <span className="text-2xl font-bold text-[#CECECD]">Manticore Studio</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/#projects" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">Showcase</Link>
-              <Link href="/services" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">Services</Link>
-              <Link href="/about" className="text-[#E0E220] transition-colors font-medium">About Us</Link>
-              <Link href="/contact" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Navbar moved to global layout (src/components/Navbar.tsx) */}
 
       <section className="pt-40 pb-20 px-4 relative z-10">
         <div className="container mx-auto max-w-4xl text-center">

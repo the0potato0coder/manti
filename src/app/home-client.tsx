@@ -6,7 +6,13 @@ import {
   BarChart,
   ChevronRight,
   Coffee,
+  Code,
+  FileText,
+  Megaphone,
   Lightbulb,
+  MessageCircleMore,
+  PenTool,
+  Search,
   Quote,
   Shirt,
   Store,
@@ -27,41 +33,7 @@ export default function Home() {
     <div className="min-h-screen bg-black relative">
       <Starfield />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#E0E220]/20">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain"
-                alt="Manticore Studio Logo"
-                width={40}
-                height={40}
-                sizes="40px"
-                className="w-10 h-10 rounded-lg"
-              />
-
-              <span className="text-2xl font-bold text-[#CECECD]">Manticore Studio</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link
-                href="/#projects"
-                className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium"
-              >
-                Showcase
-              </Link>
-              <Link href="/services" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">
-                Services
-              </Link>
-              <Link href="/about" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">
-                About Us
-              </Link>
-              <Link href="/contact" className="text-[#CECECD] hover:text-[#E0E220] transition-colors font-medium">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Navbar moved to global layout (src/components/Navbar.tsx) */}
 
       <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/50 to-black z-0" />
@@ -85,14 +57,65 @@ export default function Home() {
             graphics, VFX, brand storytelling, and social media marketing.
           </p>
 
-          <div className="flex items-center justify-center mt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-4">
             <Button
               size="lg"
-              className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all"
+              className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-8 py-6 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all"
               asChild
             >
-              <a href="#contact">Get Free Consultation</a>
+              <Link href="/contact">Get Free Consultation</Link>
             </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="group min-w-55 border border-[#E0E220]/40 bg-[#0D1016]/80 text-[#CECECD] hover:bg-[#111722] font-bold text-lg px-8 py-6 rounded-xl shadow-[0_0_20px_rgba(224,226,32,0.08)] hover:shadow-[0_0_40px_rgba(224,226,32,0.2)] transition-all backdrop-blur-md"
+              asChild
+            >
+              <a
+                href="https://wa.me/919831012176?text=Hi%20Manticore%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20marketing%20and%20creative%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E0E220]/25 bg-[#E0E220]/10 text-[#E0E220] transition-transform group-hover:scale-105">
+                  <MessageCircleMore className="h-5 w-5" />
+                </span>
+                <span className="leading-none">WhatsApp Us</span>
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES OVERVIEW SECTION */}
+      <section className="py-24 px-4 relative z-10 bg-linear-to-b from-black to-[#0A0A0F]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Our Services</h2>
+            <p className="text-[#CECECD]/70 text-lg">Comprehensive digital solutions to scale your brand.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              { title: "Branding", icon: PenTool, desc: "Visual identities that resonate and stand out." },
+              { title: "Development", icon: Code, desc: "High-performance, SEO-optimized websites." },
+              { title: "Marketing", icon: Megaphone, desc: "Data-driven performance ad campaigns." },
+              { title: "SEO", icon: Search, desc: "Dominate local & global search rankings." },
+              { title: "Content", icon: FileText, desc: "Engaging copy & visual storytelling." },
+              { title: "Strategy", icon: Target, desc: "Clear roadmaps for measurable growth." }
+            ].map((srv, idx) => (
+              <Link
+                href="/services"
+                key={idx}
+                className="p-8 bg-[#0A0A0F] border border-[#E0E220]/20 rounded-xl hover:border-[#E0E220] transition-all group block"
+              >
+                <srv.icon className="w-10 h-10 text-[#CECECD]/50 group-hover:text-[#E0E220] mb-6 transition-colors" />
+                <h3 className="text-2xl font-bold text-[#CECECD] group-hover:text-[#E0E220] transition-colors mb-3">
+                  {srv.title}
+                </h3>
+                <p className="text-[#CECECD]/60">{srv.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -112,6 +135,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/241508869?ilo0=1"
+                  title="New Project Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -131,6 +155,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/233410319?ilo0=1"
+                  title="Branding Project Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -150,6 +175,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/178853093?ilo0=1"
+                  title="3D Animation Project Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -169,6 +195,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/222993967?ilo0=1"
+                  title="Liquid Motion Graphics Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -188,6 +215,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/205267559?ilo0=1"
+                  title="Concept Project Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -207,6 +235,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/200628625?ilo0=1"
+                  title="Naked Eye Animation Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -226,6 +255,7 @@ export default function Home() {
               <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
                 <iframe
                   src="https://www.behance.net/embed/project/224147613?ilo0=1"
+                  title="Featured Project Behance preview"
                   className="w-full h-full absolute inset-0"
                   allowFullScreen
                   loading="lazy"
@@ -277,7 +307,7 @@ export default function Home() {
 
             <div className="relative z-20 w-24 h-24 md:w-32 md:h-32 bg-black rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(224,226,32,0.3)] border-2 border-[#E0E220]">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain"
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
                 alt="Manticore Studio"
                 width={96}
                 height={96}
@@ -290,7 +320,7 @@ export default function Home() {
               {
                 name: "Balaji Bedding",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/balaji-logo_name-01-resized-1769023875632.jpg?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/balaji-logo_name-01-resized-1769023875632.jpg?width=800&height=800&resize=contain",
                 whiteBg: true,
                 orbit: "inner",
                 angle: 0,
@@ -298,7 +328,7 @@ export default function Home() {
               {
                 name: "Agamoni",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-resized-1769023887769.jpg?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-resized-1769023887769.jpg?width=800&height=800&resize=contain",
                 whiteBg: true,
                 orbit: "inner",
                 angle: 90,
@@ -306,7 +336,7 @@ export default function Home() {
               {
                 name: "Own's Creation",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visiting-card-1769023939792.jpg?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visiting-card-1769023939792.jpg?width=800&height=800&resize=contain",
                 whiteBg: true,
                 orbit: "inner",
                 angle: 180,
@@ -314,7 +344,7 @@ export default function Home() {
               {
                 name: "Verden Trends",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-06-12-at-17.29.47_2925b156-1769023975001.jpg?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-06-12-at-17.29.47_2925b156-1769023975001.jpg?width=800&height=800&resize=contain",
                 whiteBg: true,
                 orbit: "inner",
                 angle: 270,
@@ -322,35 +352,35 @@ export default function Home() {
               {
                 name: "Himmel Fragranza",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/text-with-icon-01-1769023775460.png?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/text-with-icon-01-1769023775460.png?width=800&height=800&resize=contain",
                 orbit: "outer",
                 angle: 0,
               },
               {
                 name: "Go Room Go",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Logo-white-1769023799934.png?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Logo-white-1769023799934.png?width=800&height=800&resize=contain",
                 orbit: "outer",
                 angle: 72,
               },
               {
                 name: "Cake Heaven",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/pink-complete-logo-01-1769023813483.png?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/pink-complete-logo-01-1769023813483.png?width=800&height=800&resize=contain",
                 orbit: "outer",
                 angle: 144,
               },
               {
                 name: "Belle Milk",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Belle-logo-in-cyan-1769023845383.png?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Belle-logo-in-cyan-1769023845383.png?width=800&height=800&resize=contain",
                 orbit: "outer",
                 angle: 216,
               },
               {
                 name: "Basumati Yoga",
                 logo:
-                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-transparent-013-1769023862405.png?width=8000&height=8000&resize=contain",
+                  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-transparent-013-1769023862405.png?width=800&height=800&resize=contain",
                 orbit: "outer",
                 angle: 288,
               },
@@ -469,7 +499,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-3">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=8000&height=8000&resize=contain"
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
                 alt="Manticore Studio Logo"
                 width={32}
                 height={32}

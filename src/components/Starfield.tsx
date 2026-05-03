@@ -32,9 +32,32 @@ export const Starfield = () => {
       });
     }
 
-    let animationId: number;
+    let animationId: number | null = null;
+
+    const shouldAnimate = () => {
+      return window.scrollY < window.innerHeight && document.visibilityState === "visible";
+    };
+
+    const stopAnimation = () => {
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    };
+
+    const startAnimation = () => {
+      if (animationId !== null) return;
+      animationId = requestAnimationFrame(animate);
+    };
+
     const animate = () => {
+      if (!shouldAnimate()) {
+        stopAnimation();
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.shadowBlur = 0;
 
       stars.forEach((star) => {
         star.opacity += star.speed * 0.02;
@@ -45,7 +68,7 @@ export const Starfield = () => {
         ctx.fillStyle = `rgba(224, 226, 32, ${star.opacity})`;
         ctx.fill();
 
-        if (star.size > 1) {
+        if (star.size > 1 && window.innerWidth > 768) {
           ctx.shadowBlur = 10;
           ctx.shadowColor = "rgba(224, 226, 32, 0.5)";
         } else {
@@ -56,11 +79,23 @@ export const Starfield = () => {
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    const syncAnimationState = () => {
+      if (shouldAnimate()) {
+        startAnimation();
+      } else {
+        stopAnimation();
+      }
+    };
+
+    window.addEventListener("scroll", syncAnimationState, { passive: true });
+    document.addEventListener("visibilitychange", syncAnimationState);
+    syncAnimationState();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationId);
+      window.removeEventListener("scroll", syncAnimationState);
+      document.removeEventListener("visibilitychange", syncAnimationState);
+      stopAnimation();
     };
   }, []);
 
