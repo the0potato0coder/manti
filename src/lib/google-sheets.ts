@@ -67,7 +67,8 @@ export async function appendToGoogleSheet(values: string[][]): Promise<void> {
   try {
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:D',
+      // Expand range to A:F to accept timestamp, name, email, phone, business type, message
+      range: 'Sheet1!A:F',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values,

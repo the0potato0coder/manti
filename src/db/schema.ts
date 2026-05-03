@@ -106,6 +106,8 @@ export const contactSubmissions = sqliteTable('contact_submissions', {
   name: text('name').notNull(),
   email: text('email').notNull(),
   message: text('message').notNull(),
+  phone: text('phone'),
+  businessType: text('business_type'),
   submittedAt: text('submitted_at').notNull(),
   syncedToSheets: integer('synced_to_sheets', { mode: 'boolean' })
     .notNull()

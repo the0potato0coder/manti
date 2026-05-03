@@ -7,12 +7,14 @@ import { eq } from 'drizzle-orm';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, phone, businessType } = body;
 
     // Trim inputs
     const trimmedName = typeof name === 'string' ? name.trim() : '';
     const trimmedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
     const trimmedMessage = typeof message === 'string' ? message.trim() : '';
+    const trimmedPhone = typeof phone === 'string' ? phone.trim() : '';
+    const trimmedBusinessType = typeof businessType === 'string' ? businessType.trim() : '';
 
     // Validate name
     if (!trimmedName) {
@@ -60,12 +62,14 @@ export async function POST(request: NextRequest) {
 
     const timestamp = new Date().toISOString();
 
-    // Insert into database
+    // Insert into database (including phone & business type)
     const newSubmission = await db.insert(contactSubmissions)
       .values({
         name: trimmedName,
         email: trimmedEmail,
         message: trimmedMessage,
+        phone: trimmedPhone,
+        businessType: trimmedBusinessType,
         submittedAt: timestamp,
         syncedToSheets: false
       })
@@ -73,7 +77,8 @@ export async function POST(request: NextRequest) {
 
     // Write to Google Sheets
     try {
-      const rowData = [[timestamp, trimmedName, trimmedEmail, trimmedMessage]];
+      // Add phone and business type to the Google Sheets row
+      const rowData = [[timestamp, trimmedName, trimmedEmail, trimmedPhone, trimmedBusinessType, trimmedMessage]];
       await appendToGoogleSheet(rowData);
       
       // Update sync status in database
