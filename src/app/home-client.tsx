@@ -194,7 +194,7 @@ export default function Home() {
 
       <main>
         <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/50 to-black z-0" />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/20 z-0" />
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#E0E220]/20 rounded-full blur-[100px]" />
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#134652]/30 rounded-full blur-[120px]" />
@@ -226,7 +226,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-[#0A0A0F]">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold text-[#CECECD] mb-6 leading-tight">
@@ -249,7 +249,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-linear-to-b from-[#0A0A0F] to-black">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Our Digital Marketing Services in Kolkata</h2>
@@ -272,7 +272,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 overflow-hidden bg-black">
+        <section className="py-24 px-4 relative z-10 overflow-hidden">
           <div className="container mx-auto max-w-6xl text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Brands We Work With</h2>
             <p className="text-[#CECECD]/70 text-lg max-w-2xl mx-auto">Trusted by brands across multiple industries. From growing startups to established local names, we work closely with our clients to create strategies that deliver real results.</p>
@@ -322,7 +322,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="py-24 px-4 relative z-10 bg-linear-to-b from-black to-[#0A0A0F]">
+        <section id="projects" className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Our Work & Creative Portfolio</h2>
@@ -488,7 +488,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-[#0A0A0F]">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Why Businesses Choose Manticore Studio</h2>
@@ -531,7 +531,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-linear-to-b from-black to-[#0A0A0F]">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Industries We Work With</h2>
@@ -548,7 +548,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-[#0A0A0F]">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">What Our Clients Say</h2>
@@ -569,7 +569,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-linear-to-b from-[#0A0A0F] to-black">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Frequently Asked Questions</h2>
@@ -590,7 +590,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 bg-black">
+        <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-12 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Let's Build a Brand That Actually Grows</h2>
