@@ -1,85 +1,38 @@
-"use client";
-
-import { useState } from "react";
-import { Starfield } from "@/components/Starfield";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, Instagram, Linkedin, Globe, Youtube } from "lucide-react";
-import { toast } from "sonner";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 
+import { Starfield } from "@/components/Starfield";
+import { Mail, Phone, Instagram, Linkedin, Globe, Youtube } from "lucide-react";
+
+import { ContactForm } from "@/app/contact/contact-form";
+
+export const metadata: Metadata = {
+  title: "Contact Manticore Studio | Digital Marketing Agency in Kolkata",
+  description:
+    "Have a project in mind or just want to explore your options? Get in touch with Manticore Studio and let's talk about what's possible for your brand.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", businessType: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      // The backend route will need a slight update later to map the new phone/businessType fields to the Google Sheet
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Submission failed");
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      setFormData({ name: "", email: "", phone: "", businessType: "", message: "" });
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Failed to send message.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-black relative">
       <Starfield />
-      
-      {/* Navbar moved to global layout (src/components/Navbar.tsx) */}
 
       <section className="pt-40 pb-32 px-4 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold text-[#CECECD] mb-6">Contact <span className="text-[#E0E220]">Us</span></h1>
-            <p className="text-xl text-[#CECECD]/70">Let's discuss how we can grow your business.</p>
+            <p className="text-xl text-[#CECECD]/70 max-w-2xl mx-auto leading-relaxed">
+              Have a project in mind or not be sure where to start? Either way, let's talk.
+              <br className="hidden md:block" />
+              We respond within 24 hours on business days.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <Card className="bg-[#0A0A0F] border-[#E0E220]/20 h-fit">
-              <CardHeader><CardTitle className="text-2xl text-[#CECECD]">Send Us a Message</CardTitle></CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label className="block text-[#CECECD] mb-2 text-sm font-medium">Name</label>
-                    <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] outline-none" required />
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[#CECECD] mb-2 text-sm font-medium">Email</label>
-                      <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] outline-none" required />
-                    </div>
-                    <div>
-                      <label className="block text-[#CECECD] mb-2 text-sm font-medium">Phone</label>
-                      <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] outline-none" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-[#CECECD] mb-2 text-sm font-medium">Business Type / Industry</label>
-                    <input type="text" value={formData.businessType} onChange={(e) => setFormData({...formData, businessType: e.target.value})} className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-[#CECECD] mb-2 text-sm font-medium">Message</label>
-                    <textarea rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 bg-black border border-[#E0E220]/30 rounded-lg text-[#CECECD] focus:border-[#E0E220] outline-none resize-none" required />
-                  </div>
-                  <Button type="submit" className="w-full bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold py-6 text-lg" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Request Free Consultation"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <ContactForm />
 
             <div className="space-y-8">
               <div>

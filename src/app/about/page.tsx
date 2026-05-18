@@ -1,135 +1,118 @@
-"use client";
-
-import { useState } from "react";
-import { Starfield } from "@/components/Starfield";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Instagram, Linkedin, User } from "lucide-react";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { Lightbulb, Layers, TrendingUp, MessageSquare, ShieldCheck } from "lucide-react";
+
+import { Starfield } from "@/components/Starfield";
 import { Button } from "@/components/ui/button";
+import { TeamSlider } from "./team-slider";
+
+export const metadata: Metadata = {
+  title: "About Manticore Studio | Digital Marketing Company Kolkata",
+  description:
+    "Learn about Manticore Studio, a creative digital marketing company in Kolkata.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const teamMembers = [
-    { name: "Anirban Chanda", role: "Creative Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675514297-ef1hohth2n9.jpg", link: "https://linkedin.com/in/anirbanchanda00", icon: "linkedin" },
-    { name: "Subho Chakraborty", role: "Manager", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675527571-5k8wq6ms20m.jpg", link: "https://linkedin.com/in/subho-chakraborty-67baa426b", icon: "linkedin" },
-    { name: "Souvik", role: "Design Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383313225.png?width=800&height=800&resize=contain", link: "", icon: "linkedin" },
-    { name: "Deepta", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767381726390.png?width=800&height=800&resize=contain", link: "https://www.instagram.com/_my.tiny.canvas_/", icon: "instagram" },
-    { name: "Aritri", role: "Brand Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-11-09-at-22.17.08_59b976ce-1767381837548.jpg?width=800&height=800&resize=contain", link: "https://www.instagram.com/_nineteen_graphics?igsh=MXRzcm52dDNmdGpxYg==", icon: "instagram" },
-    { name: "Anamika", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383065791.png?width=800&height=800&resize=contain", link: "https://www.instagram.com/_pixel__play_?utm_source=qr&igsh=MXM3b282NTE2YzZqcw==", icon: "instagram" },
-  ];
-
-  const nextSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide((prev) => (prev + 1) % teamMembers.length);
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
-  const prevSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-  
-  const goToSlide = (index: number) => {
-    if (isTransitioning || index === currentSlide) return;
-    setIsTransitioning(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
   return (
     <div className="min-h-screen bg-black relative">
       <Starfield />
-      
-      {/* Navbar moved to global layout (src/components/Navbar.tsx) */}
 
+      {/* 1. HERO SECTION */}
       <section className="pt-40 pb-20 px-4 relative z-10">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#CECECD] mb-8">About <span className="text-[#E0E220]">Manticore</span></h1>
-          
-          <div className="space-y-8 text-left mb-20 bg-[#0A0A0F] p-8 md:p-12 rounded-2xl border border-[#E0E220]/20">
-            <div>
-              <h2 className="text-2xl font-bold text-[#E0E220] mb-4">Our Story</h2>
-              <p className="text-lg text-[#CECECD]/80 leading-relaxed">
-                Manticore Studio was born from a desire to bridge the gap between high-end creative art and data-driven marketing. We realized that beautiful visuals aren't enough if they don't convert, and great marketing fails without compelling creative.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-[#E0E220] mb-4">Our Approach</h2>
-              <p className="text-lg text-[#CECECD]/80 leading-relaxed">
-                We blend art and strategy. Whether it's CGI, 3D animation, or a local SEO campaign in Kolkata, we ensure every piece of content feels human, cinematic, and strategically positioned to capture your target audience.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-[#E0E220] mb-4">The Manticore Difference</h2>
-              <p className="text-lg text-[#CECECD]/80 leading-relaxed">
-                Unlike traditional agencies that outsource creative or marketing, we do both in-house. This ensures your brand's visual identity perfectly aligns with your performance marketing goals.
-              </p>
-            </div>
-          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-[#CECECD] mb-8">
+            About <span className="text-[#E0E220]">Manticore Studio</span>
+          </h1>
+          <p className="text-xl text-[#CECECD]/70 leading-relaxed">
+            We are a creative digital marketing studio based in Kolkata. Built for businesses that want more than just another vendor. We think strategically, execute with precision, and treat every brand we work with as if it were our own.
+          </p>
         </div>
       </section>
 
-      {/* Team Slider */}
-      <section className="py-20 px-4 relative z-10 bg-linear-to-b from-[#0A0A0F] to-black">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Meet Our Team</h2>
-          </div>
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div className="flex transition-none">
-                {teamMembers.map((member, idx) => (
-                  <div
-                    key={idx}
-                    className={`w-full shrink-0 px-4 transition-all duration-500 ${
-                      idx === currentSlide ? "opacity-100 animate-[fadeIn_0.5s_ease-out]" : "opacity-0 absolute inset-0 animate-[fadeOut_0.5s_ease-out]"
-                    }`}
-                    style={{ display: idx === currentSlide ? "block" : "none" }}
-                  >
-                    <Card className="bg-[#0A0A0F] border-[#E0E220]/20 max-w-md mx-auto">
-                      <CardHeader className="text-center">
-                        <div
-                          className={`w-32 h-32 mx-auto mb-6 bg-linear-to-br from-[#E0E220] to-[#134652] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(224,226,32,0.3)] ${member.image ? "bg-cover! bg-center!" : ""}`}
-                          style={member.image ? { backgroundImage: `url(${member.image})` } : {}}
-                        >
-                          {!member.image && <User className="h-16 w-16 text-black" />}
-                        </div>
-                        <CardTitle className="text-3xl text-[#CECECD] mb-3">{member.name}</CardTitle>
-                        <CardDescription className="text-[#E0E220] font-semibold text-xl mb-6">{member.role}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="text-center pb-8">
-                        <a href={member.link || "#"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-lg text-[#CECECD] hover:bg-[#E0E220] hover:text-black transition-all">
-                          {member.icon === "linkedin" ? <Linkedin className="h-6 w-6" /> : <Instagram className="h-6 w-6" />}
-                          {member.icon === "linkedin" ? "Connect on LinkedIn" : "View Portfolio"}
-                        </a>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
+      {/* 2. OUR STORY & OUR APPROACH */}
+      <section className="py-20 px-4 relative z-10 bg-[#0A0A0F] border-t border-[#E0E220]/10">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-[#E0E220] mb-6">Our Story</h2>
+              <div className="text-lg text-[#CECECD]/80 leading-relaxed space-y-4">
+                <p>Manticore Studio was founded on a simple but frustrating observation. Too many good businesses were being let down by scattered marketing, generic agencies, and branding that did not reflect what they actually stood for.</p>
+                <p>We saw small businesses spending money on ads without a solid brand behind them. We saw startups building websites before they had a clear identity. We saw local brands with real potential sitting invisible on Google while their competitors, sometimes offering far less, were getting all the attention.</p>
+                <p>We started Manticore Studio to change that. Not by offering more services than anyone else, but by doing things in the right order with the right thinking behind every decision. Strategy first. Then creative. Then execution. Then growth.</p>
+                <p>That approach has not changed. Every client we take on gets a team that is genuinely invested in seeing their business move forward. Not just one that shows up with a monthly report and calls it done.</p>
               </div>
             </div>
-            <button onClick={prevSlide} disabled={isTransitioning} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-full flex items-center justify-center hover:bg-[#E0E220] transition-all z-10"><ChevronLeft className="h-6 w-6 text-[#E0E220]" /></button>
-            <button onClick={nextSlide} disabled={isTransitioning} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-full flex items-center justify-center hover:bg-[#E0E220] transition-all z-10"><ChevronRight className="h-6 w-6 text-[#E0E220]" /></button>
-            <div className="flex justify-center gap-3 mt-12">
-              {teamMembers.map((_, idx) => (
-                <button key={idx} onClick={() => goToSlide(idx)} className={`w-3 h-3 rounded-full transition-all ${idx === currentSlide ? "bg-[#E0E220] w-8" : "bg-[#E0E220]/30"}`} />
-              ))}
+
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-[#E0E220] mb-6">Our Approach</h2>
+              <div className="text-lg text-[#CECECD]/80 leading-relaxed space-y-4">
+                <p>Most agencies keep their services in separate boxes. The design team does not talk to the SEO team. The ad team runs campaigns without input from the content team. The result is a brand that looks inconsistent, markets inefficiently, and never quite builds the momentum it should.</p>
+                <p className="font-semibold text-[#CECECD]">We work differently.</p>
+                <p>At Manticore Studio, creativity, development, and marketing work together as one connected system. When we build a brand identity, we are already thinking about how it translates to social media, to a website, and to an ad creative. When we build an SEO strategy, we align it with the content being produced and the pages being developed. Nothing happens in isolation.</p>
+                <p>This means less wasted effort, stronger results, and a brand that feels coherent because it was built that way from the beginning.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="pb-32 pt-20 px-4 relative z-10 text-center">
-        <h2 className="text-4xl font-bold text-[#CECECD] mb-6">Ready to build something amazing?</h2>
-        <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold" asChild>
-          <Link href="/contact">Let's Work Together</Link>
-        </Button>
+      {/* 3. WHY WE ARE DIFFERENT */}
+      <section className="py-24 px-4 relative z-10 bg-black">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Why We Are Different</h2>
+            <p className="text-xl text-[#CECECD]/70 max-w-3xl mx-auto">
+              There are plenty of digital marketing agencies in Kolkata. We know that. So here is an honest answer to why our clients choose us and stay with us.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "We think before we do", icon: Lightbulb, desc: "Every project starts with understanding your business, your audience, and what you are actually trying to achieve. We do not jump straight to deliverables. We make sure the strategy is right first." },
+              { title: "We work across the full picture", icon: Layers, desc: "Branding, web, social, SEO, content, and ads. We handle all of it under one roof. That means your brand stays consistent and your marketing channels support each other instead of pulling in different directions." },
+              { title: "We are built for growing businesses", icon: TrendingUp, desc: "We understand that budgets are real, timelines matter, and results need to justify the investment. We do not overpromise. We set clear expectations and focus on the work that actually moves the needle." },
+              { title: "We communicate clearly", icon: MessageSquare, desc: "No jargon, no vague reports, no disappearing between check-ins. Every client knows exactly what is happening, why it is happening, and what comes next." },
+              { title: "We take quality seriously", icon: ShieldCheck, desc: "From a logo to a landing page to a single social post, everything that leaves our studio is something we are proud to put our name on." },
+            ].map((point, idx) => (
+              <div key={idx} className="p-8 bg-[#0A0A0F] border border-[#E0E220]/20 rounded-2xl hover:border-[#E0E220]/50 transition-colors">
+                <point.icon className="w-10 h-10 text-[#E0E220] mb-6" />
+                <h3 className="text-2xl font-bold text-[#CECECD] mb-3">{point.title}</h3>
+                <p className="text-[#CECECD]/70 leading-relaxed">{point.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. OUR TEAM */}
+      <section className="py-24 px-4 relative z-10 bg-linear-to-b from-black to-[#0A0A0F]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Our Team</h2>
+            <p className="text-xl text-[#CECECD]/70 max-w-2xl mx-auto">
+              Manticore Studio is made up of designers, developers, strategists, content creators, and marketing specialists who genuinely care about the work they produce.
+            </p>
+          </div>
+
+          <TeamSlider />
+        </div>
+      </section>
+
+      {/* 5. WORK WITH US (Final CTA) */}
+      <section className="py-24 px-4 relative z-10">
+        <div className="container mx-auto max-w-4xl text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-12 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Work With Us</h2>
+          <div className="text-lg text-[#CECECD]/80 leading-relaxed space-y-6 mb-10 max-w-3xl mx-auto">
+            <p>If you have read this far, you already have a sense of how we work and what we stand for. What we would like to know now is where your business is, where you want to take it, and what is getting in the way.</p>
+            <p>That is all we need to start. No lengthy forms, no pitch decks before we have spoken, no pressure to commit on the first call. Just a straightforward conversation about your brand and how we can help it grow.</p>
+          </div>
+          <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all" asChild>
+            <Link href="/contact">Schedule a Consultation</Link>
+          </Button>
+        </div>
       </section>
     </div>
   );
