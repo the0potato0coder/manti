@@ -16,7 +16,7 @@ import {
 
 export function Navbar() {
   const navItems = [
-    { href: "/#projects", label: "Showcase" },
+    { href: "/showcase", label: "Showcase" },
     { href: "/services", label: "Services" },
     { href: "/about", label: "About Us" },
     { href: "/blog", label: "Blog" },
