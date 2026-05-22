@@ -21,6 +21,7 @@ import {
   Utensils,
   Video,
 } from "lucide-react";
+import { ExpertiseTree } from "@/components/ExpertiseTree";
 import { Button } from "@/components/ui/button";
 import { Starfield } from "@/components/Starfield";
 
@@ -199,9 +200,16 @@ export default function Home() {
           </div>
 
           <div className="container mx-auto text-center relative z-10 pt-20">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#CECECD] mb-6 tracking-tight leading-tight">
-              Grow Smarter with a Reliable <br className="hidden md:block" />
-              <span className="text-[#E0E220]">Digital Marketing Agency</span> in Kolkata
+            <h1 className="mb-8 tracking-tight flex flex-col items-center justify-center">
+              <span className="text-xl md:text-2xl lg:text-3xl font-medium text-[#CECECD]/70 mb-4 block tracking-wide">
+                Grow Smarter with a Reliable
+              </span>
+              <span className="text-6xl md:text-8xl lg:text-[7rem] font-black text-[#E0E220] leading-[0.9] mb-2 block drop-shadow-[0_0_30px_rgba(224,226,32,0.2)]">
+                Digital Marketing
+              </span>
+              <span className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#CECECD] block">
+                Agency <span className="font-light text-[#CECECD]/60">in Kolkata</span>
+              </span>
             </h1>
 
             <p className="text-2xl md:text-3xl text-[#CECECD]/90 mb-6 font-light max-w-4xl mx-auto">
@@ -341,27 +349,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 border-y border-[#E0E220]/10">
-          <div className="container mx-auto max-w-6xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#CECECD] mb-4">Technologies & Platforms We Work With</h2>
-            <p className="text-[#CECECD]/70 mb-12">To deliver consistent results, we work with reliable tools and platforms that our team knows inside out.</p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 opacity-60">
-              {[
-                "Shopify",
-                "WordPress",
-                "Next.js",
-                "React",
-                "Google Ads",
-                "Meta Ads",
-                "Figma",
-                "Blender",
-                "Adobe Creative Cloud",
-              ].map((tech) => (
-                <span key={tech} className="px-6 py-3 border border-[#CECECD]/20 rounded-full text-[#CECECD] font-medium">{tech}</span>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ExpertiseTree />
 
         <section className="py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
