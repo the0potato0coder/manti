@@ -25,6 +25,30 @@ interface Post {
 
 export default async function BlogPage() {
   const allPosts = await client.fetch<Post[]>(ALL_POSTS_QUERY);
+
+  // Empty state fallback
+  if (!allPosts || allPosts.length === 0) {
+    return (
+      <div className="min-h-screen bg-black relative flex flex-col items-center justify-center">
+        <Starfield />
+        <div className="relative z-10 text-center px-6 max-w-lg">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#CECECD] mb-6">
+            Marketing <span className="text-[#E0E220]">Insights</span>
+          </h1>
+          <p className="text-xl text-[#CECECD]/70 mb-8">
+            We are currently crafting new strategies and case studies. Check back soon for our latest updates!
+          </p>
+          <Link
+            href="/"
+            className="inline-block bg-[#E0E220] text-black font-bold py-3 px-8 rounded-full hover:bg-[#E0E220]/90 transition-colors"
+          >
+            Return to Homepage
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const featuredPost = allPosts.find((post) => post.featured) || allPosts[0];
   const posts = featuredPost
     ? allPosts.filter((post) => post.slug !== featuredPost.slug)
