@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
+export const revalidate = 60; // Revalidate the data every 60 seconds
+
 interface Post {
   title: string;
   slug: string;

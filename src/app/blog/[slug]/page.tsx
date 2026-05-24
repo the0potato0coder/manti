@@ -16,6 +16,8 @@ interface Post {
   content: unknown[];
 }
 
+export const revalidate = 60; // Revalidate the data every 60 seconds
+
 export async function generateStaticParams() {
   const posts = await client.fetch<{ slug: string }[]>(ALL_POSTS_QUERY);
   return posts.map((post) => ({
