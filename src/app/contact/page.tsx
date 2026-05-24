@@ -75,15 +75,16 @@ export default function ContactPage() {
               {/* Google Maps Embed */}
               <div>
                 <h3 className="text-2xl font-bold text-[#CECECD] mb-6">Visit Us in Kolkata</h3>
+                <p className="text-[#CECECD]/70 mb-4">PFFW+C8, Kolkata, West Bengal</p>
                 <div className="w-full h-64 rounded-xl overflow-hidden border border-[#E0E220]/30 relative">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117925.33439927702!2d88.26495085603781!3d22.53540637452296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1708450123456!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="100%" 
-                        style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }} 
-                        allowFullScreen 
-                        loading="lazy" 
-                        referrerPolicy="no-referrer-when-downgrade"
+                    <iframe
+                      src="https://www.google.com/maps?q=PFFW%2BC8,+Kolkata,+West+Bengal&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
                     />
                 </div>
               </div>
