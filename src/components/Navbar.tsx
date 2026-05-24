@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
@@ -15,6 +16,13 @@ import {
 } from "@/components/ui/sheet";
 
 export function Navbar() {
+  const pathname = usePathname();
+
+  // If we are inside the Sanity Studio, do not render the Navbar
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+
   const navItems = [
     { href: "/showcase", label: "Showcase" },
     { href: "/services", label: "Services" },
