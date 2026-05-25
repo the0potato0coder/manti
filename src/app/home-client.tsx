@@ -247,10 +247,13 @@ export default function Home() {
               <p><strong>We fix that.</strong> Branding defines how people see you. Content tells your story clearly. Marketing puts that story in front of the right people, consistently. When the three move together, growth stops being a guessing game.</p>
               <p>No random posting. No campaigns built in isolation. Just a focused system tied directly to what your business is trying to achieve. We start by understanding your business. The strategy follows from there.</p>
             </div>
-            <div className="text-center mt-12">
-              <Button variant="outline" className="border-[#E0E220] text-[#E0E220] hover:bg-[#E0E220]/10 px-8 py-6 text-lg rounded-xl" asChild>
-                <Link href="/about">Learn More About Us</Link>
-              </Button>
+            <div className="mt-10 text-center">
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#E0E220] text-[#E0E220] hover:bg-[#E0E220] hover:text-black font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(224,226,32,0.15)] hover:shadow-[0_0_25px_rgba(224,226,32,0.4)]"
+              >
+                Learn More About Us
+              </Link>
             </div>
           </div>
         </section>
