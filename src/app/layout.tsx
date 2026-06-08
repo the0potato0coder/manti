@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClientShell } from "./client-shell";
 import { Navbar } from "@/components/Navbar";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import RouteChangeTracker from "@/components/RouteChangeTracker";
 
 const BRAND_ICON_URL =
   "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=1200&height=1200&resize=contain";
@@ -64,6 +66,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   icons: {
     icon: [{ url: BRAND_ICON_URL }],
     shortcut: [{ url: BRAND_ICON_URL }],
@@ -110,6 +115,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteJsonLd) }}
         />
+        <GoogleAnalytics />
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
@@ -127,6 +133,7 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
         <Navbar />
+        <RouteChangeTracker />
         <ClientShell>{children}</ClientShell>
       </body>
     </html>
