@@ -415,13 +415,13 @@ export default function Home() {
 
         <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-12 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
+            <div className="text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-6 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Let's Build a Brand That Actually Grows</h2>
               <p className="text-xl text-[#CECECD]/80 mb-10 max-w-2xl mx-auto">
                 Book a free consultation and take the first step toward growth that is structured, sustainable, and built around your business.
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-                <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)]" asChild>
+                <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-6 py-4 md:px-10 md:py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)]" asChild>
                   <Link href="/contact">Book Free Consultation</Link>
                 </Button>
               </div>

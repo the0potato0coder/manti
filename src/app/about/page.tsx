@@ -103,13 +103,13 @@ export default function AboutPage() {
 
       {/* 5. WORK WITH US (Final CTA) */}
       <section className="py-24 px-4 relative z-10">
-        <div className="container mx-auto max-w-4xl text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-12 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
+        <div className="container mx-auto max-w-4xl text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-6 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
           <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Work With Us</h2>
           <div className="text-lg text-[#CECECD]/80 leading-relaxed space-y-6 mb-10 max-w-3xl mx-auto">
             <p>If you have read this far, you already have a sense of how we work and what we stand for. What we would like to know now is where your business is, where you want to take it, and what is getting in the way.</p>
             <p>That is all we need to start. No lengthy forms, no pitch decks before we have spoken, no pressure to commit on the first call. Just a straightforward conversation about your brand and how we can help it grow.</p>
           </div>
-          <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all" asChild>
+          <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-6 py-4 md:px-10 md:py-7 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)] hover:shadow-[0_0_50px_rgba(224,226,32,0.5)] transition-all" asChild>
             <Link href="/contact">Schedule a Consultation</Link>
           </Button>
         </div>

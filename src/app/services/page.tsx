@@ -232,12 +232,12 @@ export default function ServicesPage() {
 
       <section className="py-24 px-4 relative z-10">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center bg-linear-to-b from-[#134652]/40 to-[#0A0A0F] border border-[#E0E220]/30 rounded-3xl p-12 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
+          <div className="text-center bg-linear-to-b from-[#134652]/40 to-[#0A0A0F] border border-[#E0E220]/30 rounded-3xl p-6 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
             <h2 className="text-4xl font-bold text-[#CECECD] mb-6">Not Sure What You Need?</h2>
             <p className="text-xl text-[#CECECD]/80 mb-10 max-w-2xl mx-auto leading-relaxed">
               That's okay, most people aren't. Tell us where your business is right now and what you're trying to achieve. We'll put together a straightforward plan that makes sense for you.
             </p>
-            <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-10 py-6 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)]" asChild>
+            <Button size="lg" className="bg-[#E0E220] text-black hover:bg-[#E0E220]/90 font-bold text-lg px-6 py-4 md:px-10 md:py-6 rounded-xl shadow-[0_0_30px_rgba(224,226,32,0.3)]" asChild>
               <Link href="/contact">Let's Figure It Out Together</Link>
             </Button>
           </div>
