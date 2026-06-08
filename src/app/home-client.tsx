@@ -201,13 +201,13 @@ export default function Home() {
 
           <div className="container mx-auto text-center relative z-10 pt-20">
             <h1 className="mb-8 tracking-tight flex flex-col items-center justify-center">
-              <span className="text-xl md:text-2xl lg:text-3xl font-medium text-[#CECECD]/70 mb-4 block tracking-wide">
+              <span className="text-lg md:text-2xl lg:text-3xl font-medium text-[#CECECD]/70 mb-4 block tracking-wide">
                 Grow Smarter with a Reliable
               </span>
-              <span className="text-6xl md:text-8xl lg:text-[7rem] font-black text-[#E0E220] leading-[0.9] mb-2 block drop-shadow-[0_0_30px_rgba(224,226,32,0.2)]">
+              <span className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-black text-[#E0E220] leading-[1.1] md:leading-[0.9] mb-2 block drop-shadow-[0_0_30px_rgba(224,226,32,0.2)]">
                 Digital Marketing
               </span>
-              <span className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#CECECD] block">
+              <span className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-[#CECECD] block">
                 Agency <span className="font-light text-[#CECECD]/60">in Kolkata</span>
               </span>
             </h1>
@@ -232,7 +232,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold text-[#CECECD] mb-6 leading-tight">
@@ -258,7 +258,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Our Digital Marketing Services in Kolkata</h2>
@@ -281,16 +281,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10 overflow-hidden">
+        <section className="py-16 md:py-24 px-4 relative z-10 overflow-hidden">
           <div className="container mx-auto max-w-6xl text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Brands We Work With</h2>
             <p className="text-[#CECECD]/70 text-lg max-w-2xl mx-auto">Trusted by brands across multiple industries. From growing startups to established local names, we work closely with our clients to create strategies that deliver real results.</p>
           </div>
 
-          <div className="relative flex items-center justify-center min-h-125 md:min-h-150">
-            <div className="absolute w-70 h-70 md:w-80 md:h-80 rounded-full border border-[#E0E220]/10" />
-            <div className="absolute w-100 h-100 md:w-120 md:h-120 rounded-full border border-[#E0E220]/5" />
-            <div className="absolute w-130 h-130 md:w-160 md:h-160 rounded-full border border-[#E0E220]/5" />
+          <div className="relative flex items-center justify-center min-h-[400px] md:min-h-150 py-10">
+            <div className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full border border-[#E0E220]/10" />
+            <div className="absolute w-80 h-80 md:w-120 md:h-120 rounded-full border border-[#E0E220]/5" />
+            <div className="absolute w-[24rem] h-[24rem] md:w-160 md:h-160 rounded-full border border-[#E0E220]/5" />
 
             <div className="relative z-20 w-24 h-24 md:w-32 md:h-32 bg-black rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(224,226,32,0.3)] border-2 border-[#E0E220]">
               <Image
@@ -331,7 +331,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Why Businesses Choose Manticore Studio</h2>
@@ -354,7 +354,7 @@ export default function Home() {
 
         <ExpertiseTree />
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Industries We Work With</h2>
@@ -371,7 +371,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">What Our Clients Say</h2>
@@ -392,7 +392,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">Frequently Asked Questions</h2>
@@ -413,7 +413,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-4 relative z-10">
+        <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center bg-[#E0E220]/10 border border-[#E0E220]/30 rounded-3xl p-12 md:p-20 shadow-[0_0_50px_rgba(224,226,32,0.05)]">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-6">Let's Build a Brand That Actually Grows</h2>

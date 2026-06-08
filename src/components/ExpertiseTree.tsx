@@ -57,7 +57,7 @@ export function ExpertiseTree() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-2 mb-8">
             {[
               {
                 title: "AI Creatives",
@@ -65,6 +65,10 @@ export function ExpertiseTree() {
                 color: "from-purple-500/20 to-purple-900/20",
                 borderColor: "border-purple-500/50",
                 textColor: "text-purple-400",
+                lineColor: "from-purple-500/30 to-transparent",
+                hoverBg: "hover:bg-purple-500/10",
+                items: ["AI Art Generation", "Smart Content", "Auto Editing"],
+                tags: ["Prompts", "Training"],
               },
               {
                 title: "Brand Development",
@@ -72,6 +76,10 @@ export function ExpertiseTree() {
                 color: "from-blue-500/20 to-blue-900/20",
                 borderColor: "border-blue-500/50",
                 textColor: "text-blue-400",
+                lineColor: "from-blue-500/30 to-transparent",
+                hoverBg: "hover:bg-blue-500/10",
+                items: ["Logo Design", "Brand Identity", "Visual Language"],
+                tags: ["Guidelines", "Assets"],
               },
               {
                 title: "Strategy Making",
@@ -79,6 +87,10 @@ export function ExpertiseTree() {
                 color: "from-green-500/20 to-green-900/20",
                 borderColor: "border-green-500/50",
                 textColor: "text-green-400",
+                lineColor: "from-green-500/30 to-transparent",
+                hoverBg: "hover:bg-green-500/10",
+                items: ["Market Research", "Campaign Strategy", "Growth Planning"],
+                tags: ["Analytics", "KPIs"],
               },
               {
                 title: "Social Media",
@@ -86,6 +98,10 @@ export function ExpertiseTree() {
                 color: "from-pink-500/20 to-pink-900/20",
                 borderColor: "border-pink-500/50",
                 textColor: "text-pink-400",
+                lineColor: "from-pink-500/30 to-transparent",
+                hoverBg: "hover:bg-pink-500/10",
+                items: ["Content Calendar", "Influencer Marketing", "Community Mgmt"],
+                tags: ["Reels", "Stories"],
               },
               {
                 title: "Visual Production",
@@ -93,9 +109,14 @@ export function ExpertiseTree() {
                 color: "from-orange-500/20 to-orange-900/20",
                 borderColor: "border-orange-500/50",
                 textColor: "text-orange-400",
+                lineColor: "from-orange-500/30 to-transparent",
+                hoverBg: "hover:bg-orange-500/10",
+                items: ["3D Animation", "Motion Graphics", "CGI & VFX"],
+                tags: ["Render", "Composite"],
               },
             ].map((branch, idx) => (
               <div key={idx} className="flex flex-col items-center">
+                {/* Main Branch Card */}
                 <div
                   className={`w-full max-w-45 p-4 bg-linear-to-br ${branch.color} border ${branch.borderColor} rounded-xl text-center hover:scale-105 transition-transform cursor-pointer group`}
                 >
@@ -104,158 +125,38 @@ export function ExpertiseTree() {
                   />
                   <span className={`font-bold ${branch.textColor}`}>{branch.title}</span>
                 </div>
+
+                {/* Connecting line to sub-items */}
+                <div className={`w-0.5 h-8 bg-linear-to-b ${branch.lineColor} my-2 opacity-60`} />
+
+                {/* Sub-items */}
+                <div className="space-y-3 w-full max-w-45">
+                  {branch.items.map((item, i) => (
+                    <div
+                      key={i}
+                      className={`p-3 bg-[#0A0A0F] border ${branch.borderColor} opacity-60 rounded-lg text-center ${branch.hoverBg} hover:opacity-100 hover:border-opacity-100 transition-all cursor-pointer`}
+                    >
+                      <span className={`text-sm ${branch.textColor}`}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Connecting line to tags */}
+                <div className={`w-0.5 h-6 bg-linear-to-b ${branch.lineColor} my-2 opacity-40`} />
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 justify-center max-w-45">
+                  {branch.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className={`px-3 py-1.5 bg-[#0A0A0F] border ${branch.borderColor} opacity-50 rounded-full text-xs ${branch.textColor} ${branch.hoverBg} hover:opacity-100 transition-colors cursor-pointer`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
-          </div>
-
-          <div className="hidden md:grid grid-cols-5 gap-2 mb-0">
-            {[1, 2, 3, 4, 5].map((_, idx) => (
-              <div key={idx} className="flex justify-center">
-                <div className="w-0.5 h-8 bg-linear-to-b from-[#E0E220]/30 to-[#E0E220]/10" />
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2">
-            <div className="space-y-3">
-              {[
-                "AI Art Generation",
-                "Smart Content",
-                "Auto Editing",
-              ].map((item, idx) => (
-                <div key={idx} className="relative">
-                  <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-purple-500/30" />
-                  <div className="p-3 bg-[#0A0A0F] border border-purple-500/30 rounded-lg text-center hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-pointer">
-                    <span className="text-sm text-purple-300">{item}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-3">
-              {[
-                "Logo Design",
-                "Brand Identity",
-                "Visual Language",
-              ].map((item, idx) => (
-                <div key={idx} className="relative">
-                  <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-blue-500/30" />
-                  <div className="p-3 bg-[#0A0A0F] border border-blue-500/30 rounded-lg text-center hover:border-blue-500 hover:bg-blue-500/10 transition-all cursor-pointer">
-                    <span className="text-sm text-blue-300">{item}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-3">
-              {[
-                "Market Research",
-                "Campaign Strategy",
-                "Growth Planning",
-              ].map((item, idx) => (
-                <div key={idx} className="relative">
-                  <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-green-500/30" />
-                  <div className="p-3 bg-[#0A0A0F] border border-green-500/30 rounded-lg text-center hover:border-green-500 hover:bg-green-500/10 transition-all cursor-pointer">
-                    <span className="text-sm text-green-300">{item}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-3">
-              {[
-                "Content Calendar",
-                "Influencer Marketing",
-                "Community Mgmt",
-              ].map((item, idx) => (
-                <div key={idx} className="relative">
-                  <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-pink-500/30" />
-                  <div className="p-3 bg-[#0A0A0F] border border-pink-500/30 rounded-lg text-center hover:border-pink-500 hover:bg-pink-500/10 transition-all cursor-pointer">
-                    <span className="text-sm text-pink-300">{item}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-3">
-              {[
-                "3D Animation",
-                "Motion Graphics",
-                "CGI & VFX",
-              ].map((item, idx) => (
-                <div key={idx} className="relative">
-                  <div className="hidden md:block absolute left-1/2 -top-3 w-0.5 h-3 bg-orange-500/30" />
-                  <div className="p-3 bg-[#0A0A0F] border border-orange-500/30 rounded-lg text-center hover:border-orange-500 hover:bg-orange-500/10 transition-all cursor-pointer">
-                    <span className="text-sm text-orange-300">{item}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="hidden md:grid grid-cols-5 gap-2 mt-6">
-            {[1, 2, 3, 4, 5].map((_, idx) => (
-              <div key={idx} className="flex justify-center">
-                <div className="w-0.5 h-6 bg-linear-to-b from-[#E0E220]/20 to-transparent" />
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2 mt-2">
-            <div className="flex flex-wrap gap-2 justify-center">
-              {["Prompts", "Training"].map((item, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1.5 bg-purple-500/10 border border-purple-500/20 rounded-full text-xs text-purple-300 hover:bg-purple-500/20 transition-colors cursor-pointer"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center">
-              {["Guidelines", "Assets"].map((item, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-300 hover:bg-blue-500/20 transition-colors cursor-pointer"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center">
-              {["Analytics", "KPIs"].map((item, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full text-xs text-green-300 hover:bg-green-500/20 transition-colors cursor-pointer"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center">
-              {["Reels", "Stories"].map((item, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1.5 bg-pink-500/10 border border-pink-500/20 rounded-full text-xs text-pink-300 hover:bg-pink-500/20 transition-colors cursor-pointer"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center">
-              {["Render", "Composite"].map((item, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1.5 bg-orange-500/10 border border-orange-500/20 rounded-full text-xs text-orange-300 hover:bg-orange-500/20 transition-colors cursor-pointer"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
 
           <div className="mt-20 text-center">
