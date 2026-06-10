@@ -286,24 +286,6 @@ export default function UpcomingProjects() {
         </div>
       </section>
 
-      <footer className="border-t border-[#E0E220]/20 py-8 px-4">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-3">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
-                alt="Manticore Studio Logo"
-                width={32}
-                height={32}
-                sizes="32px"
-                className="w-8 h-8 rounded-lg"
-              />
-              <span className="font-bold text-[#CECECD]">Manticore Studio</span>
-            </div>
-            <p className="text-[#CECECD]/60 text-sm">&copy; 2024 Manticore Studio. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

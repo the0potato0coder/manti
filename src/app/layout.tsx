@@ -96,6 +96,8 @@ const websiteJsonLd = {
   url: "https://www.manticorestudio.com",
 };
 
+import { Footer } from "@/components/Footer";
+
 const safeJsonLd = (schema: Record<string, unknown>) =>
   JSON.stringify(schema).replace(/</g, "\\u003c");
 
@@ -106,7 +108,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
@@ -135,6 +137,7 @@ export default function RootLayout({
         <Navbar />
         <RouteChangeTracker />
         <ClientShell>{children}</ClientShell>
+        <Footer />
       </body>
     </html>
   );
