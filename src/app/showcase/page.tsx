@@ -171,6 +171,46 @@ export default function ShowcasePage() {
               </CardHeader>
             </Card>
 
+            <Card className="bg-[#0A0A0F] border-[#E0E220]/20 hover:border-[#E0E220] transition-all duration-300 overflow-hidden group cursor-pointer hover:shadow-[0_0_30px_rgba(224,226,32,0.2)]">
+              <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
+                <iframe
+                  src="https://www.behance.net/embed/project/250885253?ilo0=1"
+                  title="Recent Project Behance preview"
+                  className="w-full h-full absolute inset-0"
+                  allowFullScreen
+                  loading="lazy"
+                  allow="clipboard-write"
+                  style={{ border: 0 }}
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-[#CECECD] text-xl">Recent Project</CardTitle>
+                <CardDescription className="text-[#CECECD]/60">
+                  <span className="text-[#E0E220] font-semibold">Creative Work</span>
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="bg-[#0A0A0F] border-[#E0E220]/20 hover:border-[#E0E220] transition-all duration-300 overflow-hidden group cursor-pointer hover:shadow-[0_0_30px_rgba(224,226,32,0.2)]">
+              <div className="aspect-video bg-linear-to-br from-[#134652] to-[#0A0A0F] relative overflow-hidden">
+                <iframe
+                  src="https://www.behance.net/embed/project/220158913?ilo0=1"
+                  title="Creative Project Behance preview"
+                  className="w-full h-full absolute inset-0"
+                  allowFullScreen
+                  loading="lazy"
+                  allow="clipboard-write"
+                  style={{ border: 0 }}
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-[#CECECD] text-xl">Creative Project</CardTitle>
+                <CardDescription className="text-[#CECECD]/60">
+                  <span className="text-[#E0E220] font-semibold">Featured Work</span>
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
             <Link
               href="https://www.behance.net/Manticorestudio"
               target="_blank"

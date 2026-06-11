@@ -158,12 +158,12 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#E0E220] py-4 px-4 relative z-20">
-        <div className="container mx-auto text-center flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-black text-[13px] md:text-sm font-semibold tracking-wide">
+      <div className="bg-[#E0E220] py-4 relative z-20">
+        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+          <p className="text-black text-[13px] md:text-sm font-normal">
             Copyright &copy; 2026 Manticore Studio. All Rights Reserved.
           </p>
-          <p className="text-black/70 text-[13px] md:text-sm font-medium">
+          <p className="text-black/70 text-[13px] md:text-sm font-medium md:text-right">
             Branding &bull; Video Production &bull; Marketing
           </p>
         </div>

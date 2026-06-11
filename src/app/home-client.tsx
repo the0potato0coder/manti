@@ -60,61 +60,89 @@ const serviceCards = [
 
 const brandOrbits = [
   {
-    name: "Balaji Bedding",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/balaji-logo_name-01-resized-1769023875632.jpg?width=800&height=800&resize=contain",
-    whiteBg: true,
-    orbit: "inner",
-    angle: 0,
-  },
-  {
-    name: "Agamoni",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-resized-1769023887769.jpg?width=800&height=800&resize=contain",
-    whiteBg: true,
-    orbit: "inner",
-    angle: 90,
-  },
-  {
     name: "Own's Creation",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visiting-card-1769023939792.jpg?width=800&height=800&resize=contain",
     whiteBg: true,
-    orbit: "inner",
-    angle: 180,
+    orbit: 1,
+    angle: 0,
   },
   {
     name: "Verden Trends",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-06-12-at-17.29.47_2925b156-1769023975001.jpg?width=800&height=800&resize=contain",
     whiteBg: true,
-    orbit: "inner",
-    angle: 270,
+    orbit: 1,
+    angle: 120,
+  },
+  {
+    name: "Devi Fashions",
+    logo: "/brands/media__1781157960196.png",
+    whiteBg: true,
+    orbit: 1,
+    angle: 240,
+  },
+  {
+    name: "Direction Matters",
+    logo: "/brands/media__1781157963894.png",
+    whiteBg: true,
+    orbit: 2,
+    angle: 0,
   },
   {
     name: "Himmel Fragranza",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/text-with-icon-01-1769023775460.png?width=800&height=800&resize=contain",
-    orbit: "outer",
-    angle: 0,
+    orbit: 2,
+    angle: 72,
   },
   {
     name: "Go Room Go",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Logo-white-1769023799934.png?width=800&height=800&resize=contain",
-    orbit: "outer",
-    angle: 72,
+    orbit: 2,
+    angle: 144,
   },
   {
     name: "Cake Heaven",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/pink-complete-logo-01-1769023813483.png?width=800&height=800&resize=contain",
-    orbit: "outer",
-    angle: 144,
+    orbit: 2,
+    angle: 216,
   },
   {
     name: "Belle Milk",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Belle-logo-in-cyan-1769023845383.png?width=800&height=800&resize=contain",
-    orbit: "outer",
-    angle: 216,
+    orbit: 2,
+    angle: 288,
   },
   {
     name: "Basumati Yoga",
     logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-transparent-013-1769023862405.png?width=800&height=800&resize=contain",
-    orbit: "outer",
+    orbit: 3,
+    angle: 0,
+  },
+  {
+    name: "GO",
+    logo: "/brands/media__1781157967804.png",
+    orbit: 3,
+    whiteBg: true,
+    angle: 72,
+  },
+  {
+    name: "KianX",
+    logo: "/brands/media__1781157974455.png",
+    orbit: 3,
+    whiteBg: true,
+    angle: 144,
+  },
+  {
+    name: "SmilyBazar",
+    logo: "/brands/media__1781157980301.png",
+    orbit: 3,
+    whiteBg: true,
+    angle: 216,
+  },
+  {
+    name: "3W's Kitchen",
+    logo: "/brands/media__1781158176975.png",
+    orbit: 3,
+    whiteBg: true,
     angle: 288,
   },
 ];
@@ -289,8 +317,8 @@ export default function Home() {
 
           <div className="relative flex items-center justify-center min-h-[400px] md:min-h-150 py-10">
             <div className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full border border-[#E0E220]/10" />
-            <div className="absolute w-80 h-80 md:w-120 md:h-120 rounded-full border border-[#E0E220]/5" />
-            <div className="absolute w-[24rem] h-[24rem] md:w-160 md:h-160 rounded-full border border-[#E0E220]/5" />
+            <div className="absolute w-[22rem] h-[22rem] md:w-120 md:h-120 rounded-full border border-[#E0E220]/5" />
+            <div className="absolute w-[28rem] h-[28rem] md:w-160 md:h-160 rounded-full border border-[#E0E220]/5" />
 
             <div className="relative z-20 w-24 h-24 md:w-32 md:h-32 bg-black rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(224,226,32,0.3)] border-2 border-[#E0E220]">
               <Image
@@ -303,19 +331,21 @@ export default function Home() {
               />
             </div>
 
-            {brandOrbits.map((brand, idx) => (
+            {brandOrbits.map((brand) => (
               <div
-                key={idx}
-                className={`absolute w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 z-10 hover:scale-150 hover:shadow-[0_0_40px_rgba(224,226,32,0.8)] ${brand.whiteBg ? "bg-white border-2 border-[#E0E220]/50 hover:border-[#E0E220]" : "bg-black/80 backdrop-blur-sm border border-[#E0E220]/30 hover:border-[#E0E220]"}`}
+                key={brand.name}
+                className={`absolute w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 z-10 hover:scale-150 hover:shadow-[0_0_40px_rgba(224,226,32,0.8)] ${brand.whiteBg ? "bg-white border-2 border-[#E0E220]/50 hover:border-[#E0E220]" : "bg-black/80 backdrop-blur-sm border border-[#E0E220]/30 hover:border-[#E0E220]"}`}
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
                   animation:
-                    brand.orbit === "inner"
-                      ? "orbitInner 30s linear infinite"
-                      : "orbitOuter 40s linear infinite reverse",
-                  animationDelay: `${-brand.angle / (brand.orbit === "inner" ? 12 : 9)}s`,
+                    brand.orbit === 1
+                      ? "orbit1 30s linear infinite"
+                      : brand.orbit === 2
+                      ? "orbit2 40s linear infinite"
+                      : "orbit3 50s linear infinite reverse",
+                  animationDelay: `${-brand.angle / (brand.orbit === 1 ? 12 : brand.orbit === 2 ? 9 : 7.2)}s`,
                 }}
               >
                 <Image
@@ -323,8 +353,8 @@ export default function Home() {
                   alt={brand.name}
                   width={48}
                   height={48}
-                  sizes="(max-width: 768px) 40px, 48px"
-                  className={`w-10 h-10 md:w-12 md:h-12 object-contain ${brand.whiteBg ? "rounded-full" : ""}`}
+                  sizes="(max-width: 768px) 32px, 48px"
+                  className={`w-8 h-8 md:w-12 md:h-12 object-contain ${brand.whiteBg ? "rounded-full" : ""}`}
                 />
               </div>
             ))}
@@ -371,7 +401,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 px-4 relative z-10">
+        {/* <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-[#CECECD] mb-4">What Our Clients Say</h2>
@@ -390,7 +420,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="py-16 md:py-24 px-4 relative z-10">
           <div className="container mx-auto max-w-4xl">
