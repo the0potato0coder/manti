@@ -9,12 +9,11 @@ export function TeamSlider() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const teamMembers = [
-    { name: "Anirban Chanda", role: "Creative Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675514297-ef1hohth2n9.jpg", link: "https://linkedin.com/in/anirbanchanda00", icon: "linkedin" },
-    { name: "Subho Chakraborty", role: "Manager", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visual-edit-uploads/1762675527571-5k8wq6ms20m.jpg", link: "https://linkedin.com/in/subho-chakraborty-67baa426b", icon: "linkedin" },
-    { name: "Souvik", role: "Design Head", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383313225.png?width=800&height=800&resize=contain", link: "", icon: "linkedin" },
-    { name: "Deepta", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767381726390.png?width=800&height=800&resize=contain", link: "https://www.instagram.com/_my.tiny.canvas_/", icon: "instagram" },
-    { name: "Aritri", role: "Brand Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-11-09-at-22.17.08_59b976ce-1767381837548.jpg?width=800&height=800&resize=contain", link: "https://www.instagram.com/_nineteen_graphics?igsh=MXRzcm52dDNmdGpxYg==", icon: "instagram" },
-    { name: "Anamika", role: "Graphic Designer", image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/image-1767383065791.png?width=800&height=800&resize=contain", link: "https://www.instagram.com/_pixel__play_?utm_source=qr&igsh=MXM3b282NTE2YzZqcw==", icon: "instagram" },
+    { name: "Anirban Chanda", role: "Creative Head", image: "/supabase/1762675514297-ef1hohth2n9.jpg", link: "https://linkedin.com/in/anirbanchanda00", icon: "linkedin" },
+    { name: "Subho Chakraborty", role: "Manager", image: "/supabase/1762675527571-5k8wq6ms20m.jpg", link: "https://linkedin.com/in/subho-chakraborty-67baa426b", icon: "linkedin" },
+    { name: "Souvik", role: "Design Head", image: "/supabase/image-1767383313225-800.png", link: "", icon: "linkedin" },
+    { name: "Deepta", role: "Graphic Designer", image: "/supabase/image-1767381726390-800.png", link: "https://www.instagram.com/_my.tiny.canvas_/", icon: "instagram" },
+    { name: "Aritri", role: "Brand Designer", image: "/supabase/WhatsApp-Image-2025-11-09-at-22.17.08_59b976ce-1767381837548-800.jpg", link: "https://www.instagram.com/_nineteen_graphics?igsh=MXRzcm52dDNmdGpxYg==", icon: "instagram" },
   ];
 
   const nextSlide = () => {

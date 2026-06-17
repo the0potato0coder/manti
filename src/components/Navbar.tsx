@@ -38,7 +38,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             {/* Optimized image size query params to 400x400 for faster LCP */}
             <Image 
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=400&height=400&resize=contain" 
+              src="/brands/icon-1762235219951-400.png" 
               alt="Manticore Studio Logo" 
               width={40} 
               height={40} 

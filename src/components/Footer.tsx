@@ -31,7 +31,7 @@ export function Footer() {
           <div className="lg:col-span-4 flex flex-col items-start">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
+                src="/brands/icon-1762235219951-800.png"
                 alt="Manticore Studio Logo"
                 width={36}
                 height={36}

@@ -112,7 +112,7 @@ export default function UpcomingProjects() {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-3">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
+                src="/brands/icon-1762235219951-800.png"
                 alt="Manticore Studio Logo"
                 width={40}
                 height={40}

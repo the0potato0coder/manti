@@ -58,64 +58,79 @@ const serviceCards = [
   },
 ];
 
-const brandOrbits = [
+type BrandOrbit = {
+  name: string;
+  logo: string;
+  whiteBg?: boolean;
+  orbit: number;
+  angle: number;
+  textLogo?: string;
+  imageScale?: number;
+  transformOrigin?: string;
+};
+
+const brandOrbits: BrandOrbit[] = [
   {
     name: "Own's Creation",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/visiting-card-1769023939792.jpg?width=800&height=800&resize=contain",
+    logo: "/brands/Owns-Creation-logo.jpg",
     whiteBg: true,
     orbit: 1,
     angle: 0,
+    imageScale: 4.5,
+    transformOrigin: "50% 35%",
   },
   {
     name: "Verden Trends",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/WhatsApp-Image-2025-06-12-at-17.29.47_2925b156-1769023975001.jpg?width=800&height=800&resize=contain",
+    logo: "/brands/Verden-Trends-logo.jpg",
     whiteBg: true,
     orbit: 1,
     angle: 120,
+    imageScale: 1.5,
   },
   {
     name: "Devi Fashions",
-    logo: "/brands/media__1781157960196.png",
+    logo: "/brands/Devi-Fashions-logo.png",
     whiteBg: true,
     orbit: 1,
     angle: 240,
+    imageScale: 1.5,
   },
   {
     name: "Direction Matters",
-    logo: "/brands/media__1781157963894.png",
+    logo: "/brands/Direction-matters-logo.png",
     whiteBg: true,
     orbit: 2,
     angle: 0,
+    imageScale: 1.5,
   },
   {
     name: "Himmel Fragranza",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/text-with-icon-01-1769023775460.png?width=800&height=800&resize=contain",
+    logo: "/brands/Himmel-Fragranza-logo.png",
     orbit: 2,
     angle: 72,
+    imageScale: 1.5,
   },
-  {
-    name: "Go Room Go",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Logo-white-1769023799934.png?width=800&height=800&resize=contain",
-    orbit: 2,
-    angle: 144,
-  },
+
   {
     name: "Cake Heaven",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/pink-complete-logo-01-1769023813483.png?width=800&height=800&resize=contain",
+    logo: "/brands/Cake-Heaven-logo.png",
     orbit: 2,
     angle: 216,
+    imageScale: 1.8,
   },
   {
     name: "Belle Milk",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/Belle-logo-in-cyan-1769023845383.png?width=800&height=800&resize=contain",
+    logo: "/brands/Belle-Milk-logo.png",
     orbit: 2,
     angle: 288,
   },
   {
     name: "Basumati Yoga",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3ba6769b-5569-4fbd-b7d6-6c9af3e5a432/logo1-transparent-013-1769023862405.png?width=800&height=800&resize=contain",
+    logo: "/brands/Basumati-logo.png",
+    whiteBg: true,
     orbit: 3,
     angle: 0,
+    imageScale: 1.5,
   },
   {
     name: "GO",
@@ -123,27 +138,31 @@ const brandOrbits = [
     orbit: 3,
     whiteBg: true,
     angle: 72,
+    imageScale: 1.5,
   },
   {
     name: "KianX",
-    logo: "/brands/media__1781157974455.png",
+    logo: "/brands/Kianx-logo.png",
     orbit: 3,
     whiteBg: true,
     angle: 144,
+    imageScale: 1.5,
   },
   {
     name: "SmilyBazar",
-    logo: "/brands/media__1781157980301.png",
+    logo: "/brands/Smily-Bazar-logo.png",
     orbit: 3,
     whiteBg: true,
     angle: 216,
+    imageScale: 1.5,
   },
   {
     name: "3W's Kitchen",
-    logo: "/brands/media__1781158176975.png",
+    logo: "/brands/3ws-kitchen-logo.png",
     orbit: 3,
     whiteBg: true,
     angle: 288,
+    imageScale: 1.8,
   },
 ];
 
@@ -315,18 +334,19 @@ export default function Home() {
             <p className="text-[#CECECD]/70 text-lg max-w-2xl mx-auto">Trusted by brands across multiple industries. From growing startups to established local names, we work closely with our clients to create strategies that deliver real results.</p>
           </div>
 
-          <div className="relative flex items-center justify-center min-h-[400px] md:min-h-150 py-10">
-            <div className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full border border-[#E0E220]/10" />
-            <div className="absolute w-[22rem] h-[22rem] md:w-120 md:h-120 rounded-full border border-[#E0E220]/5" />
-            <div className="absolute w-[28rem] h-[28rem] md:w-160 md:h-160 rounded-full border border-[#E0E220]/5" />
+          <div className="relative flex items-center justify-center min-h-[500px] md:min-h-[800px] py-20 md:my-16 my-10">
+            <div className="absolute w-48 h-48 md:w-80 md:h-80 rounded-full border border-[#E0E220]/10" />
+            <div className="absolute w-72 h-72 md:w-120 md:h-120 rounded-full border border-[#E0E220]/5" />
+            <div className="absolute w-96 h-96 md:w-160 md:h-160 rounded-full border border-[#E0E220]/5" />
 
             <div className="relative z-20 w-24 h-24 md:w-32 md:h-32 bg-black rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(224,226,32,0.3)] border-2 border-[#E0E220]">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=800&height=800&resize=contain"
+                src="/brands/icon-1762235219951-800.png"
                 alt="Manticore Studio"
-                width={96}
-                height={96}
-                sizes="(max-width: 768px) 64px, 96px"
+                width={256}
+                height={256}
+                quality={100}
+                sizes="(max-width: 768px) 128px, 256px"
                 className="w-16 h-16 md:w-24 md:h-24 rounded-full object-contain"
               />
             </div>
@@ -334,10 +354,8 @@ export default function Home() {
             {brandOrbits.map((brand) => (
               <div
                 key={brand.name}
-                className={`absolute w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 z-10 hover:scale-150 hover:shadow-[0_0_40px_rgba(224,226,32,0.8)] ${brand.whiteBg ? "bg-white border-2 border-[#E0E220]/50 hover:border-[#E0E220]" : "bg-black/80 backdrop-blur-sm border border-[#E0E220]/30 hover:border-[#E0E220]"}`}
+                className="absolute top-1/2 left-1/2 z-10 will-change-transform hover:[animation-play-state:paused]"
                 style={{
-                  top: "50%",
-                  left: "50%",
                   transform: "translate(-50%, -50%)",
                   animation:
                     brand.orbit === 1
@@ -348,14 +366,31 @@ export default function Home() {
                   animationDelay: `${-brand.angle / (brand.orbit === 1 ? 12 : brand.orbit === 2 ? 9 : 7.2)}s`,
                 }}
               >
-                <Image
-                  src={brand.logo}
-                  alt={brand.name}
-                  width={48}
-                  height={48}
-                  sizes="(max-width: 768px) 32px, 48px"
-                  className={`w-8 h-8 md:w-12 md:h-12 object-contain ${brand.whiteBg ? "rounded-full" : ""}`}
-                />
+                <div
+                  className={`w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-transform duration-300 hover:scale-125 hover:z-50 hover:shadow-[0_0_40px_rgba(224,226,32,0.8)] ${brand.whiteBg ? "bg-white border-2 border-[#E0E220]/50 hover:border-[#E0E220]" : "bg-[#0A0A0F] border border-[#E0E220]/30 hover:border-[#E0E220]"}`}
+                >
+                  {brand.textLogo ? (
+                    <span className={`text-xl md:text-2xl font-bold ${brand.whiteBg ? "text-black" : "text-[#CECECD]"}`}>
+                      {brand.textLogo}
+                    </span>
+                  ) : (
+                    <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
+                      <Image
+                        src={brand.logo}
+                        alt={brand.name}
+                        width={192}
+                        height={192}
+                        quality={100}
+                        sizes="(max-width: 768px) 96px, 192px"
+                        className={`w-8 h-8 md:w-12 md:h-12 object-contain ${brand.whiteBg ? "rounded-full" : ""}`}
+                        style={{
+                          transform: brand.imageScale ? `scale(${brand.imageScale})` : undefined,
+                          transformOrigin: brand.transformOrigin,
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

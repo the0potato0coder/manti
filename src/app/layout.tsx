@@ -8,7 +8,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import RouteChangeTracker from "@/components/RouteChangeTracker";
 
 const BRAND_ICON_URL =
-  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-1762235219951.png?width=1200&height=1200&resize=contain";
+  "/brands/icon-1762235219951-1200.png";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -120,12 +120,12 @@ export default function RootLayout({
         <GoogleAnalytics />
         <Script
           id="orchids-browser-logs"
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+          src="/supabase/orchids-browser-logs.js"
           strategy="lazyOnload"
           data-orchids-project-id="3ba6769b-5569-4fbd-b7d6-6c9af3e5a432"
         />
         <Script
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
+          src="/supabase/route-messenger.js"
           strategy="lazyOnload"
           data-target-origin="*"
           data-message-type="ROUTE_CHANGE"
